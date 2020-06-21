@@ -1,0 +1,50 @@
+
+/* To ensure footer remains at the bottom */
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+.site-main {
+  flex: 1;
+}
+
+
+/* Banner */
+.landing-image {
+  background-image: url('../images/banner.jpg') !important;
+  background-size: cover !important;
+}
+.banner.segment {
+  min-height: 600px;
+  padding: 1em 0em;
+  background: rgb(41, 41, 41);
+}
+.banner.segment h1.header {
+  margin-top: 2em;
+  margin-bottom: 0em;
+  font-size: 5em;
+  font-weight: bold;
+  letter-spacing: 0.8em;
+  text-indent: 0.8em;
+}
+.banner h2.header {
+  font-size: 2em;
+  margin-bottom: 1.5em;
+  font-weight: normal;
+}
+
+
+.frontpage.ui.segment {
+  padding: 5em 0em;
+}
+.frontpage.ui.segment h3 {
+  font-size: 2em;
+}
+.frontpage.ui.segment .button + h3,
+.frontpage.ui.segment p + h3 {
+  margin-top: 3em;
+}
+.frontpage.ui.segment p {
+  font-size: 1.33em;
+}
