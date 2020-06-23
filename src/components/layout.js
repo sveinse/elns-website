@@ -1,46 +1,158 @@
-import React from "react"
+import React, { Component } from "react"
 import PropTypes from "prop-types"
 import { Link } from "gatsby"
-import { Menu, Container, Sticky, Segment } from 'semantic-ui-react';
-import "semantic-ui-less/semantic.less";
+import {
+  Menu,
+  Container,
+  Segment,
+  Responsive,
+  Visibility,
+  Button,
+  Sidebar,
+  Icon,
+} from "semantic-ui-react"
+import "semantic-ui-less/semantic.less"
 
+const getWidth = () => {
+  const isSSR = typeof window === "undefined"
+  return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
+}
 
-const EHeader = () => (
-  <header>
-    <Sticky>
-      <Segment inverted vertical center aligned className="topmenu">
-        <Container>
-          <Menu inverted pointing secondary stackable>
-
-<Menu.Item as={Link} activeClassName='active' to='/'>ELNS</Menu.Item>
-<Menu.Item as={Link} activeClassName='active' to='/features'>Features</Menu.Item>
-
-          </Menu>
-        </Container>
-      </Segment>
-    </Sticky>
-  </header>
+const ElnsMenu = () => (
+  <>
+    <Menu.Item as={Link} activeClassName="active" to="/">
+      ELNS
+    </Menu.Item>
+    <Menu.Item as={Link} activeClassName="active" to="/features">
+      Features
+    </Menu.Item>
+  </>
 )
 
+const ElnsMenuButtons = () => (
+  <Button
+    inverted
+    as="a"
+    href="https://github.com/sveinse/elns-release/releases"
+  >
+    Download
+  </Button>
+)
 
-const EFooter = () => (
+class DesktopContainer extends Component {
+  state = {}
+
+  hideFixedMenu = () => this.setState({ fixed: false })
+  showFixedMenu = () => this.setState({ fixed: true })
+
+  render() {
+    const { banner, children } = this.props
+    const { fixed } = this.state
+
+    return (
+      <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
+        <Visibility
+          once={false}
+          onBottomPassed={this.showFixedMenu}
+          onBottomPassedReverse={this.hideFixedMenu}
+        >
+          <Segment inverted textAlign="center" vertical>
+            <Menu
+              fixed={fixed ? "top" : null}
+              inverted={!fixed}
+              pointing={!fixed}
+              secondary={!fixed}
+              size="large"
+            >
+              <Container>
+                <ElnsMenu />
+                <Menu.Item position="right">
+                  <ElnsMenuButtons />
+                </Menu.Item>
+              </Container>
+            </Menu>
+          </Segment>
+          {banner ? React.cloneElement(banner, { mobile: 0 }) : ""}
+        </Visibility>
+        {children}
+      </Responsive>
+    )
+  }
+}
+
+DesktopContainer.propTypes = {
+  children: PropTypes.node,
+}
+
+class MobileContainer extends Component {
+  state = {}
+
+  handleSidebarHide = () => this.setState({ sidebarOpened: false })
+  handleToggle = () => this.setState({ sidebarOpened: true })
+
+  render() {
+    const { banner, children } = this.props
+    const { sidebarOpened } = this.state
+
+    return (
+      <Responsive
+        as={Sidebar.Pushable}
+        getWidth={getWidth}
+        maxWidth={Responsive.onlyMobile.maxWidth}
+      >
+        <Sidebar
+          as={Menu}
+          animation="push"
+          inverted
+          onHide={this.handleSidebarHide}
+          vertical
+          visible={sidebarOpened}
+        >
+          <ElnsMenu />
+        </Sidebar>
+
+        <Sidebar.Pusher dimmed={sidebarOpened}>
+          <Segment inverted textAlign="center" vertical>
+            <Container>
+              <Menu inverted pointing secondary size="large">
+                <Menu.Item onClick={this.handleToggle}>
+                  <Icon name="sidebar" size="large" />
+                </Menu.Item>
+                <Menu.Item position="right">
+                  <ElnsMenuButtons />
+                </Menu.Item>
+              </Menu>
+            </Container>
+          </Segment>
+          {banner ? React.cloneElement(banner, { mobile: 1 }) : ""}
+          {children}
+        </Sidebar.Pusher>
+      </Responsive>
+    )
+  }
+}
+
+MobileContainer.propTypes = {
+  children: PropTypes.node,
+}
+
+const Footer = () => (
   <footer>
     <Segment inverted vertical className="bottom">
-      <Container>
-        ELNS (C) 2020 Svein Seldal
-      </Container>
+      <Container>ELNS (C) 2020 Svein Seldal</Container>
     </Segment>
   </footer>
 )
 
-
-const Layout = ({ children }) => (
-  <div className='site'>
-    <EHeader />
-    <div className='site-main'>
-      <main>{children}</main>
+const Layout = ({ banner, children }) => (
+  <div className="site">
+    <div className="site-main">
+      <main>
+        <DesktopContainer banner={banner}>{children}</DesktopContainer>
+        <MobileContainer banner={banner}>{children}</MobileContainer>
+      </main>
     </div>
-    <EFooter />
+    <Footer />
   </div>
 )
 
