@@ -6,6 +6,7 @@
   "author": "Svein Seldal <sveinse@seldal.com>",
   "dependencies": {
     "gatsby": "^2.22.15",
+    "gatsby-background-image": "^1.1.1",
     "gatsby-image": "^2.4.5",
     "gatsby-plugin-less": "^3.2.4",
     "gatsby-plugin-manifest": "^2.4.9",

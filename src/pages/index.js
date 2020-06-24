@@ -10,33 +10,54 @@ import {
   Container,
   Icon,
 } from "semantic-ui-react"
+import BackgroundImage from "gatsby-background-image"
+import { useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import mainwindow from "../images/mainwindow.png"
 
-const Banner = ({ mobile }) => (
-  <Segment inverted vertical center aligned className="banner landing-image">
-    <Container textAlign="center">
-      <Header
-        as="h1"
-        inverted
-        style={{
-          fontSize: mobile ? "50px" : "80px",
-        }}
+const Banner = ({ mobile }) => {
+  const data = useStaticQuery(graphql`
+    query {
+      file(relativePath: { eq: "banner.jpg" }) {
+        childImageSharp {
+          fluid(quality: 90, maxWidth: 1920) {
+            ...GatsbyImageSharpFluid_withWebp
+          }
+        }
+      }
+    }
+  `)
+
+  return (
+    <Segment inverted vertical center aligned className="banner">
+      <BackgroundImage
+        fluid={data.file.childImageSharp.fluid}
+        className="banner bg"
       >
-        ELNS
-      </Header>
-      <Header as="h2" inverted>
-        Experiment.&nbsp;&nbsp;Learn.&nbsp; Nifty.&nbsp;&nbsp;Simple.
-      </Header>
-      <Button size="huge" primary as={Link} to="/features">
-        Get started
-        <Icon name="right arrow icon" />
-      </Button>
-    </Container>
-  </Segment>
-)
+        <Container textAlign="center">
+          <Header
+            as="h1"
+            inverted
+            style={{
+              fontSize: mobile ? "50px" : "80px",
+            }}
+          >
+            ELNS
+          </Header>
+          <Header as="h2" inverted>
+            Experiment.&nbsp;&nbsp;Learn.&nbsp; Nifty.&nbsp;&nbsp;Simple.
+          </Header>
+          <Button size="huge" primary as={Link} to="/features">
+            Get started
+            <Icon name="right arrow icon" />
+          </Button>
+        </Container>
+      </BackgroundImage>
+    </Segment>
+  )
+}
 
 Banner.propTypes = {
   mobile: PropTypes.bool,

@@ -9,27 +9,27 @@
 }
 
 /* Banner */
-.landing-image {
-  background-image: url("../images/banner.jpg") !important;
-  background-size: cover !important;
+.banner.ui.segment {
+  padding: 0;
 }
-.banner.segment {
+.banner.bg {
+  background-size: cover;
+  width: 100%;
   min-height: 600px;
-  padding: 1em 0em;
   background: rgb(41, 41, 41);
   display: flex;
-  align-items: center;
   justify-content: center;
+  flex-direction: column;
 }
-.banner.segment h1.header {
+.banner h1.ui.header {
   font-size: 5em;
   font-weight: bold;
   letter-spacing: 0.8em;
   text-indent: 0.8em;
 }
-.banner h2.header {
-  font-size: 3em;
-  margin-bottom: 1.5em;
+.banner h2.ui.header {
+  font-size: 2em;
+  margin-bottom: 1em;
   font-weight: normal;
 }
 
