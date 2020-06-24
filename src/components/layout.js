@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import { NavLink } from "react-router-dom"
 import {
   Menu,
   Container,
@@ -11,7 +11,6 @@ import {
   Sidebar,
   Icon,
 } from "semantic-ui-react"
-import "semantic-ui-less/semantic.less"
 
 const getWidth = () => {
   const isSSR = typeof window === "undefined"
@@ -20,10 +19,10 @@ const getWidth = () => {
 
 const ElnsMenu = () => (
   <>
-    <Menu.Item as={Link} activeClassName="active" to="/">
+    <Menu.Item as={NavLink} activeClassName="active" to="/" exact>
       ELNS
     </Menu.Item>
-    <Menu.Item as={Link} activeClassName="active" to="/features">
+    <Menu.Item as={NavLink} activeClassName="active" to="/features" exact>
       Features
     </Menu.Item>
   </>

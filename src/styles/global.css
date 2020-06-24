@@ -9,14 +9,12 @@
 }
 
 /* Banner */
-.banner.ui.segment {
-  padding: 0;
+.banner.image {
+  background-image: url("../images/banner_1920.jpg") !important;
+  background-size: cover !important;
 }
-.banner.bg {
-  background-size: cover;
-  width: 100%;
+.banner.ui.segment {
   min-height: 600px;
-  background: rgb(41, 41, 41);
   display: flex;
   justify-content: center;
   flex-direction: column;
