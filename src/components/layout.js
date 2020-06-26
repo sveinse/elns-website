@@ -71,7 +71,7 @@ class DesktopContainer extends Component {
               </Container>
             </Menu>
           </Segment>
-          {banner ? React.cloneElement(banner, { mobile: 0 }) : ""}
+          {banner ? React.cloneElement(banner, { mobile: false }) : ""}
         </Visibility>
         {children}
       </Responsive>
@@ -123,7 +123,7 @@ class MobileContainer extends Component {
               </Menu>
             </Container>
           </Segment>
-          {banner ? React.cloneElement(banner, { mobile: 1 }) : ""}
+          {banner ? React.cloneElement(banner, { mobile: true }) : ""}
           {children}
         </Sidebar.Pusher>
       </Responsive>

@@ -17,7 +17,7 @@ import mainwindow from "../images/mainwindow.png"
 
 const Banner = ({ mobile }) => {
   return (
-    <Segment inverted vertical center aligned className="banner image">
+    <Segment inverted vertical className="banner image">
       <Container textAlign="center">
         <Header
           as="h1"
@@ -33,7 +33,7 @@ const Banner = ({ mobile }) => {
         </Header>
         <Button size="huge" primary as={Link} to="/features">
           Get started
-          <Icon name="right arrow icon" />
+          <Icon name="arrow right" />
         </Button>
       </Container>
     </Segment>
@@ -66,7 +66,6 @@ const Presentation = () => (
     <Grid stackable verticalAlign="middle" container reversed="computer tablet">
       <Grid.Row>
         <Grid.Column width={9} floated="right">
-          {/*<Img fluid={data.mainwindow.childImageSharp.fluid} />*/}
           <Image src={mainwindow} size="huge" bordered />
         </Grid.Column>
 
@@ -78,7 +77,7 @@ const Presentation = () => (
         <Grid.Column textAlign="center">
           <Button size="huge" as={Link} to="/features">
             Read more
-            <Icon name="right arrow icon" />
+            <Icon name="right arrow" />
           </Button>
         </Grid.Column>
       </Grid.Row>

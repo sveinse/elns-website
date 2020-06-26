@@ -1,6 +1,6 @@
-import React from "react"
+import React, { Component } from "react"
 import ReactDOM from "react-dom"
-import { BrowserRouter, Switch, Route } from "react-router-dom"
+import { BrowserRouter, Switch, Route, withRouter } from "react-router-dom"
 import * as serviceWorker from "./serviceWorker"
 
 import "semantic-ui-css/semantic.min.css"
@@ -10,20 +10,36 @@ import IndexPage from "./pages/index"
 import FeaturePage from "./pages/features"
 import NotFoundPage from "./pages/404"
 
+class ScrollToTop extends Component {
+  componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      window.scrollTo(0, 0)
+    }
+  }
+
+  render() {
+    return this.props.children
+  }
+}
+
+const ScrollToTopWithRouter = withRouter(ScrollToTop)
+
 ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
-      <Switch>
-        <Route exact path="/">
-          <IndexPage />
-        </Route>
-        <Route path="/features">
-          <FeaturePage />
-        </Route>
-        <Route path="*">
-          <NotFoundPage />
-        </Route>
-      </Switch>
+      <ScrollToTopWithRouter>
+        <Switch>
+          <Route exact path="/">
+            <IndexPage />
+          </Route>
+          <Route path="/features">
+            <FeaturePage />
+          </Route>
+          <Route path="*">
+            <NotFoundPage />
+          </Route>
+        </Switch>
+      </ScrollToTopWithRouter>
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById("root")

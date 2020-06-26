@@ -34,7 +34,7 @@ const FeatureContents = () => (
       <li>Process audio in high bit resolutions, up to 32-bits per sample</li>
     </ul>
 
-    <Image src={mainwindow} huge className="dropshadow" />
+    <Image src={mainwindow} className="dropshadow" />
 
     <Header as="h2">Purpose</Header>
 
