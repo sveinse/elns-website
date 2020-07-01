@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import PropTypes from "prop-types"
-import { NavLink } from "react-router-dom"
+import { NavLink, Link } from "react-router-dom"
 import {
   Menu,
   Container,
@@ -10,7 +10,11 @@ import {
   Button,
   Sidebar,
   Icon,
+  Image,
 } from "semantic-ui-react"
+
+import { elns_menu } from "./nav"
+import elns_icon from "../images/elns-icon.png"
 
 const getWidth = () => {
   const isSSR = typeof window === "undefined"
@@ -19,23 +23,30 @@ const getWidth = () => {
 
 const ElnsMenu = () => (
   <>
-    <Menu.Item as={NavLink} activeClassName="active" to="/" exact>
-      ELNS
-    </Menu.Item>
-    <Menu.Item as={NavLink} activeClassName="active" to="/features" exact>
-      Features
-    </Menu.Item>
+    {elns_menu.map(e => (
+      <Menu.Item
+        as={NavLink}
+        activeClassName="active"
+        to={e.to}
+        exact={e.exact}
+      >
+        {e.content}
+      </Menu.Item>
+    ))}
   </>
 )
 
 const ElnsMenuButtons = () => (
-  <Button
-    inverted
-    as="a"
-    href="https://github.com/sveinse/elns-release/releases"
-  >
-    Download
-  </Button>
+  <>
+    <Button
+      inverted
+      as="a"
+      href="https://github.com/sveinse/elns-release/releases"
+      style={{ marginLeft: "0.5em" }}
+    >
+      Download
+    </Button>
+  </>
 )
 
 class DesktopContainer extends Component {
@@ -45,11 +56,15 @@ class DesktopContainer extends Component {
   showFixedMenu = () => this.setState({ fixed: true })
 
   render() {
-    const { banner, children } = this.props
+    const { banner, children, nav, className } = this.props
     const { fixed } = this.state
 
     return (
-      <Responsive getWidth={getWidth} minWidth={Responsive.onlyTablet.minWidth}>
+      <Responsive
+        getWidth={getWidth}
+        minWidth={Responsive.onlyTablet.minWidth}
+        className={className}
+      >
         <Visibility
           once={false}
           onBottomPassed={this.showFixedMenu}
@@ -61,7 +76,7 @@ class DesktopContainer extends Component {
               inverted={!fixed}
               pointing={!fixed}
               secondary={!fixed}
-              size="large"
+              size="huge"
             >
               <Container>
                 <ElnsMenu />
@@ -73,7 +88,17 @@ class DesktopContainer extends Component {
           </Segment>
           {banner ? React.cloneElement(banner, { mobile: false }) : ""}
         </Visibility>
-        {children}
+        <div className="wrapper flex">
+          <main className="main">{children}</main>
+          {!banner && (
+            <Responsive
+              minWidth={Responsive.onlyTablet.maxWidth}
+              className={nav ? "nav show" : "nav nosnow"}
+            >
+              {nav}
+            </Responsive>
+          )}
+        </div>
       </Responsive>
     )
   }
@@ -90,7 +115,7 @@ class MobileContainer extends Component {
   handleToggle = () => this.setState({ sidebarOpened: true })
 
   render() {
-    const { banner, children } = this.props
+    const { banner, children, className } = this.props
     const { sidebarOpened } = this.state
 
     return (
@@ -98,6 +123,7 @@ class MobileContainer extends Component {
         as={Sidebar.Pushable}
         getWidth={getWidth}
         maxWidth={Responsive.onlyMobile.maxWidth}
+        className={className}
       >
         <Sidebar
           as={Menu}
@@ -106,11 +132,12 @@ class MobileContainer extends Component {
           onHide={this.handleSidebarHide}
           vertical
           visible={sidebarOpened}
+          width="thin"
         >
           <ElnsMenu />
         </Sidebar>
 
-        <Sidebar.Pusher dimmed={sidebarOpened}>
+        <Sidebar.Pusher as="main" dimmed={sidebarOpened}>
           <Segment inverted textAlign="center" vertical>
             <Container>
               <Menu inverted pointing secondary size="large">
@@ -137,20 +164,20 @@ MobileContainer.propTypes = {
 
 const Footer = () => (
   <footer>
-    <Segment inverted vertical className="bottom">
+    <Segment inverted vertical>
       <Container>ELNS (C) 2020 Svein Seldal</Container>
     </Segment>
   </footer>
 )
 
-const Layout = ({ banner, children }) => (
-  <div className="site">
-    <div className="site-main">
-      <main>
-        <DesktopContainer banner={banner}>{children}</DesktopContainer>
-        <MobileContainer banner={banner}>{children}</MobileContainer>
-      </main>
-    </div>
+const Layout = ({ banner, nav, children }) => (
+  <div className="site flexparent">
+    <DesktopContainer banner={banner} nav={nav} className="flex flexparent">
+      {children}
+    </DesktopContainer>
+    <MobileContainer banner={banner} className="flex">
+      {children}
+    </MobileContainer>
     <Footer />
   </div>
 )

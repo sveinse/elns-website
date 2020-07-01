@@ -1,10 +1,14 @@
 /* To ensure footer remains at the bottom */
 .site {
-  display: flex;
   min-height: 100vh;
+}
+
+/* To fill the parent block */
+.flexparent {
+  display: flex;
   flex-direction: column;
 }
-.site-main {
+.flex {
   flex: 1;
 }
 
@@ -44,4 +48,57 @@
 }
 .frontpage.ui.segment p {
   font-size: 1.33em;
+}
+
+/* Wrapper for page navigation */
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+.wrapper .main {
+  flex-grow: 1;
+}
+.wrapper .nav {
+  min-width: 15em;
+}
+.wrapper .nav.show {
+  background: rgb(224, 224, 224);
+}
+.wrapper .nav.noshow {
+  background: rgb(207, 205, 226);
+}
+
+/* Styling for the documentation navigation */
+.docsnav {
+  list-style-type: none;
+  color: #888888;
+}
+.docsnav.level0 {
+  padding: 0em 2em 2em 2em;
+  text-transform: uppercase;
+  line-height: 3;
+  font-size: 110%;
+}
+.docsnav.level1 {
+  padding: 0em;
+  text-transform: none;
+  line-height: 1.5;
+  font-size: 140%;
+  margin-bottom: 0.5em;
+}
+.docsnav.level0 .active {
+  /*font-weight: bold;*/
+  /*color: red;*/
+  font-size: 110%;
+}
+.docsnav.level1 .active {
+  /*font-weight: bold;*/
+  /*font-size: 105%;*/
+  color: red;
+}
+.docsnav a {
+  color: black;
+}
+.docsnav a:hover {
+  color: rgb(163, 163, 163) !important;
 }

@@ -6,14 +6,12 @@ import {
   Grid,
   Button,
   Header,
-  Image,
   Container,
   Icon,
 } from "semantic-ui-react"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import mainwindow from "../images/mainwindow.png"
 
 const Banner = ({ mobile }) => {
   return (
@@ -44,45 +42,40 @@ Banner.propTypes = {
   mobile: PropTypes.bool,
 }
 
-const PresentationContents = () => (
-  <>
-    <Header as="h3">Audio tool</Header>
-    <p>
-      ELNS is a simple tool for processing multi-channel audio with interactive
-      adjustment of audio parameters. It processes live audio to or from a sound
-      card or file in real-time.
-    </p>
-    <Header as="h3">DSP Functions</Header>
-    <p>
-      The tool comes with a set of audio processing functions, each purpusefully
-      written to test or demonstrate a specific feature. The DSP engine support
-      a wide range samplerates and resolutions, including high-res.
-    </p>
-  </>
-)
-
 const Presentation = () => (
-  <Segment vertical className="frontpage">
-    <Grid stackable verticalAlign="middle" container reversed="computer tablet">
-      <Grid.Row>
-        <Grid.Column width={9} floated="right">
-          <Image src={mainwindow} size="huge" bordered />
-        </Grid.Column>
-
-        <Grid.Column width={7}>
-          <PresentationContents />
-        </Grid.Column>
-      </Grid.Row>
-      <Grid.Row>
-        <Grid.Column textAlign="center">
-          <Button size="huge" as={Link} to="/features">
-            Read more
-            <Icon name="right arrow" />
-          </Button>
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
-  </Segment>
+  <Container text>
+    <Segment vertical className="frontpage">
+      <Grid columns="equal" stackable>
+        <Grid.Row>
+          <Grid.Column>
+            <Header as="h3">Audio tool</Header>
+            <p>
+              ELNS is a tool for processing multi-channel audio, supporting
+              interactive adjustment during processing. It processes live audio
+              to or from a sound card or file in real-time.
+            </p>
+          </Grid.Column>
+          <Grid.Column>
+            <Header as="h3">DSP Functions</Header>
+            <p>
+              The tool comes with a set of audio processing functions, each
+              purpusefully written to test or demonstrate a specific feature.
+              The DSP engine support a wide range of samplerates and
+              resolutions.
+            </p>
+          </Grid.Column>
+        </Grid.Row>
+        <Grid.Row>
+          <Grid.Column textAlign="center">
+            <Button size="huge" as={Link} to="/page2">
+              Show more
+              <Icon name="right arrow" />
+            </Button>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
+    </Segment>
+  </Container>
 )
 
 const IndexPage = () => (
