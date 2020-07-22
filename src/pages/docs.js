@@ -1,32 +1,29 @@
-import React from "react"
-import { Header } from "semantic-ui-react"
+import React from "react";
+import { Header, Segment } from "semantic-ui-react";
 
-import DocsLayout from "../components/docslayout"
-import SEO from "../components/seo"
-
-import { UsageIntro } from "../docs/usage"
-import { FunctionsIntro } from "../docs/functions"
+import DocsLayout, { DocsNavList } from "../components/docslayout";
+import SEO from "../components/seo";
 
 const DocsContents = () => (
   <>
-    <Header as="h1">Documentation</Header>
+    <Header as="h1">Welcome to ELNS Documentation</Header>
 
     <Header as="h4">
       This page contains the overview of the documentation for ELNS
     </Header>
 
-    <UsageIntro />
-    <FunctionsIntro />
-
-    <p />
+    <Segment>
+      <Header as="h3">Page navigation</Header>
+      <DocsNavList from="/docs" />
+    </Segment>
   </>
-)
+);
 
 const DocsPage = () => (
   <DocsLayout path="/docs">
     <SEO title="Docs" />
     <DocsContents />
   </DocsLayout>
-)
+);
 
-export default DocsPage
+export default DocsPage;

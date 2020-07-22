@@ -1,6 +1,6 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Link } from "react-router-dom"
+import React from "react";
+import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 import {
   Segment,
   Grid,
@@ -8,10 +8,10 @@ import {
   Header,
   Container,
   Icon,
-} from "semantic-ui-react"
+} from "semantic-ui-react";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const Banner = ({ mobile }) => {
   return (
@@ -29,18 +29,18 @@ const Banner = ({ mobile }) => {
         <Header as="h2" inverted>
           Experiment.&nbsp;&nbsp;Learn.&nbsp; Nifty.&nbsp;&nbsp;Simple.
         </Header>
-        <Button size="huge" primary as={Link} to="/features">
-          Get started
+        <Button size="huge" primary as={Link} to="/page2">
+          Show me
           <Icon name="arrow right" />
         </Button>
       </Container>
     </Segment>
-  )
-}
+  );
+};
 
 Banner.propTypes = {
   mobile: PropTypes.bool,
-}
+};
 
 const Presentation = () => (
   <Container text>
@@ -59,7 +59,7 @@ const Presentation = () => (
             <Header as="h3">DSP Functions</Header>
             <p>
               The tool comes with a set of audio processing functions, each
-              purpusefully written to test or demonstrate a specific feature.
+              purposefully written to test or demonstrate a specific feature.
               The DSP engine support a wide range of samplerates and
               resolutions.
             </p>
@@ -67,8 +67,8 @@ const Presentation = () => (
         </Grid.Row>
         <Grid.Row>
           <Grid.Column textAlign="center">
-            <Button size="huge" as={Link} to="/page2">
-              Show more
+            <Button size="huge" as={Link} to="/features">
+              Get started
               <Icon name="right arrow" />
             </Button>
           </Grid.Column>
@@ -76,13 +76,13 @@ const Presentation = () => (
       </Grid>
     </Segment>
   </Container>
-)
+);
 
 const IndexPage = () => (
   <Layout banner={<Banner />}>
     <SEO title="Home" />
     <Presentation />
   </Layout>
-)
+);
 
-export default IndexPage
+export default IndexPage;

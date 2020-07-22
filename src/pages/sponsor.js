@@ -1,34 +1,27 @@
-import React from "react"
-import {
-  Header,
-  Container,
-  Icon,
-  Message,
-  Image,
-  Segment,
-} from "semantic-ui-react"
+import React from "react";
+import { Header, Container, Icon, Image, Segment } from "semantic-ui-react";
 
-import Layout from "../components/layout"
-import SEO from "../components/seo"
+import Layout from "../components/layout";
+import SEO from "../components/seo";
 
 const SponsorContents = () => (
   <Container text>
-    <p />
-
     <Header as="h1">
       Sponsor <Icon name="heart outline" color="purple" inverted />
     </Header>
 
     <Header as="h4">
       ELNS is free of charge. Developing a tool like this take countless hours
-      of development. If you are appreciating the tool, please consider
-      sponsoring the author. Donation will ensure the continued development of
-      this tool.
+      of development. If you are enjoying and appreciating the tool, please
+      consider sponsoring the author. Donations will help to ensure the
+      continued development of ELNS.
     </Header>
 
-    <p />
-
-    <Segment size="big" style={{ display: "flex", verticalAlign: "middle" }}>
+    <Segment
+      size="big"
+      raised
+      style={{ display: "flex", verticalAlign: "middle", marginTop: "2em" }}
+    >
       <div
         style={{
           flexGrow: 1,
@@ -46,16 +39,14 @@ const SponsorContents = () => (
         />
       </div>
     </Segment>
-
-    <p />
   </Container>
-)
+);
 
 const SponsorPage = () => (
   <Layout>
     <SEO title="Sponsor" />
     <SponsorContents />
   </Layout>
-)
+);
 
-export default SponsorPage
+export default SponsorPage;

@@ -1,6 +1,6 @@
-import React, { Component } from "react"
-import PropTypes from "prop-types"
-import { NavLink, Link } from "react-router-dom"
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { NavLink, Link } from "react-router-dom";
 import {
   Menu,
   Container,
@@ -10,54 +10,56 @@ import {
   Button,
   Sidebar,
   Icon,
-  Image,
-} from "semantic-ui-react"
+} from "semantic-ui-react";
 
-import { elns_menu } from "./nav"
-import elns_icon from "../images/elns-icon.png"
+import { elns_menu } from "./nav";
 
 const getWidth = () => {
-  const isSSR = typeof window === "undefined"
-  return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth
-}
+  const isSSR = typeof window === "undefined";
+  return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth;
+};
 
-const ElnsMenu = () => (
+const ElnsMenu = ({ download }) => (
   <>
-    {elns_menu.map(e => (
-      <Menu.Item
-        as={NavLink}
-        activeClassName="active"
-        to={e.to}
-        exact={e.exact}
-      >
-        {e.content}
-      </Menu.Item>
-    ))}
+    {elns_menu.map(e => {
+      if (e.to === "/download" && !download) return null;
+      return (
+        <Menu.Item
+          key={e.to}
+          as={NavLink}
+          activeClassName="active"
+          to={e.to}
+          exact={e.exact}
+        >
+          {e.content}
+        </Menu.Item>
+      );
+    })}
   </>
-)
+);
 
-const ElnsMenuButtons = () => (
+const ElnsMenuButtons = ({ inverted }) => (
   <>
     <Button
-      inverted
-      as="a"
-      href="https://github.com/sveinse/elns-release/releases"
+      inverted={inverted}
+      as={Link}
+      to="/download"
       style={{ marginLeft: "0.5em" }}
     >
       Download
     </Button>
   </>
-)
+);
 
 class DesktopContainer extends Component {
-  state = {}
+  state = {};
 
-  hideFixedMenu = () => this.setState({ fixed: false })
-  showFixedMenu = () => this.setState({ fixed: true })
+  hideFixedMenu = () => this.setState({ fixed: false });
+  showFixedMenu = () => this.setState({ fixed: true });
 
   render() {
-    const { banner, children, nav, className } = this.props
-    const { fixed } = this.state
+    const { banner, children, nav, className } = this.props;
+    const { fixed } = this.state;
 
     return (
       <Responsive
@@ -81,7 +83,7 @@ class DesktopContainer extends Component {
               <Container>
                 <ElnsMenu />
                 <Menu.Item position="right">
-                  <ElnsMenuButtons />
+                  <ElnsMenuButtons inverted={!fixed} />
                 </Menu.Item>
               </Container>
             </Menu>
@@ -93,30 +95,30 @@ class DesktopContainer extends Component {
           {!banner && (
             <Responsive
               minWidth={Responsive.onlyTablet.maxWidth}
-              className={nav ? "nav show" : "nav nosnow"}
+              className={nav ? "nav show" : "nav noshow"}
             >
               {nav}
             </Responsive>
           )}
         </div>
       </Responsive>
-    )
+    );
   }
 }
 
 DesktopContainer.propTypes = {
   children: PropTypes.node,
-}
+};
 
 class MobileContainer extends Component {
-  state = {}
+  state = {};
 
-  handleSidebarHide = () => this.setState({ sidebarOpened: false })
-  handleToggle = () => this.setState({ sidebarOpened: true })
+  handleSidebarHide = () => this.setState({ sidebarOpened: false });
+  handleToggle = () => this.setState({ sidebarOpened: true });
 
   render() {
-    const { banner, children, className } = this.props
-    const { sidebarOpened } = this.state
+    const { banner, children, className } = this.props;
+    const { sidebarOpened } = this.state;
 
     return (
       <Responsive
@@ -134,7 +136,7 @@ class MobileContainer extends Component {
           visible={sidebarOpened}
           width="thin"
         >
-          <ElnsMenu />
+          <ElnsMenu download />
         </Sidebar>
 
         <Sidebar.Pusher as="main" dimmed={sidebarOpened}>
@@ -145,7 +147,7 @@ class MobileContainer extends Component {
                   <Icon name="sidebar" size="large" />
                 </Menu.Item>
                 <Menu.Item position="right">
-                  <ElnsMenuButtons />
+                  <ElnsMenuButtons inverted />
                 </Menu.Item>
               </Menu>
             </Container>
@@ -154,13 +156,13 @@ class MobileContainer extends Component {
           {children}
         </Sidebar.Pusher>
       </Responsive>
-    )
+    );
   }
 }
 
 MobileContainer.propTypes = {
   children: PropTypes.node,
-}
+};
 
 const Footer = () => (
   <footer>
@@ -168,7 +170,7 @@ const Footer = () => (
       <Container>ELNS (C) 2020 Svein Seldal</Container>
     </Segment>
   </footer>
-)
+);
 
 const Layout = ({ banner, nav, children }) => (
   <div className="site flexparent">
@@ -180,10 +182,10 @@ const Layout = ({ banner, nav, children }) => (
     </MobileContainer>
     <Footer />
   </div>
-)
+);
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
-}
+};
 
-export default Layout
+export default Layout;
