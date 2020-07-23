@@ -1,23 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { NavLink, Link } from "react-router-dom";
-import {
-  Breadcrumb,
-  Icon,
-  Container,
-  Header,
-  Segment,
-  List,
-} from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import { Breadcrumb, Icon, Container, List } from "semantic-ui-react";
 import classNames from "classnames";
 
-import { MaybeNavLink } from "./maybe";
+import { MaybeLink } from "./maybe";
 import { elns_docs } from "./nav";
 import Layout from "./layout";
 
-const getCrumbs = (pages, path) => {
+const getCrumbs = (tree, path) => {
   let crumbs = [];
-  let tip = pages;
+  let tip = tree;
   let href = "";
 
   for (let s of path.split("/")) {
@@ -34,7 +27,7 @@ const getCrumbs = (pages, path) => {
     if (path === href) {
       o.active = true;
     } else {
-      o.as = NavLink;
+      o.as = Link;
       o.to = href;
     }
     crumbs.push(o);
@@ -43,8 +36,8 @@ const getCrumbs = (pages, path) => {
   return crumbs;
 };
 
-const getTree = (pages, path) => {
-  let tip = pages;
+const getTree = (tree, path) => {
+  let tip = tree;
   let href = "";
 
   for (let s of path.split("/")) {
@@ -61,9 +54,9 @@ const getTree = (pages, path) => {
   return null;
 };
 
-const getNavItems = (path, pages, level = 0, base = "") => {
-  if (pages === undefined) return [];
-  return Array.from(pages, e => {
+const getNavItems = (tree, level = 0, base = "") => {
+  if (tree === undefined) return [];
+  return Array.from(tree, e => {
     const to = base + (e.path && "/" + e.path);
     return [
       {
@@ -72,60 +65,41 @@ const getNavItems = (path, pages, level = 0, base = "") => {
         level: e.level ? e.level : level,
         children: e.children && e.children.length,
       },
-      ...getNavItems(path, e.children, level + 1, to),
+      ...getNavItems(e.children, level + 1, to),
     ];
   }).flat();
 };
 
-const DocsNavMenu = ({ path, pages }) => {
-  const nav = getNavItems(path, pages);
-  return (
-    <ul className="docsnav">
-      {nav.map(e => {
-        const cls = classNames({
-          ["level" + e.level]: true,
-          active: path === e.to,
-        });
-        return (
-          <li className={cls} key={e.to}>
-            <MaybeNavLink if={e.link} to={e.to} exact>
-              {e.menu} {e.children && <Icon name="angle down" />}
-            </MaybeNavLink>
-          </li>
-        );
-      })}
-    </ul>
-  );
-};
-
-DocsNavMenu.propTypes = {
-  path: PropTypes.string,
-  pages: PropTypes.array,
-};
-
-const DocsNavListItems = ({ base, level, pages }) => {
-  if (pages === undefined) return null;
+const DocsNavListItems = props => {
+  const { path, level, tree, noicons } = props;
+  if (tree === undefined) return null;
   return (
     <>
-      {pages.map(e => {
-        const to = base + (e.path && "/" + e.path);
+      {tree.map(e => {
+        const to = path + (e.path && "/" + e.path);
         return (
           <List.Item key={to}>
-            <List.Header>
-              <MaybeNavLink if={e.link} to={to} exact>
-                {e.menu}
-              </MaybeNavLink>
-            </List.Header>
-            {e.description}
-            {e.children && (
-              <List.List>
-                <DocsNavListItems
-                  base={to}
-                  level={level + 1}
-                  pages={e.children}
-                />
-              </List.List>
+            {noicons ?? (
+              <List.Icon name={e.children ? "angle down" : "angle right"} />
             )}
+            <List.Content>
+              <List.Header>
+                <MaybeLink if={e.link} to={to} exact>
+                  {e.title ?? e.menu}
+                </MaybeLink>
+              </List.Header>
+              {e.description}
+              {e.children && (
+                <List.List>
+                  <DocsNavListItems
+                    {...props}
+                    path={to}
+                    level={level + 1}
+                    tree={e.children}
+                  />
+                </List.List>
+              )}
+            </List.Content>
           </List.Item>
         );
       })}
@@ -134,25 +108,49 @@ const DocsNavListItems = ({ base, level, pages }) => {
 };
 
 DocsNavListItems.defaultProps = {
-  base: "",
+  path: "",
   level: 0,
 };
 
-export const DocsNavList = ({ from }) => {
-  const tree = getTree(elns_docs, from);
-  return (
-    <List bulleted>
-      <DocsNavListItems pages={tree} />
-    </List>
-  );
+export const DocsNavList = props => (
+  <List bulleted={props.noicons}>
+    <DocsNavListItems {...props} tree={getTree(elns_docs, props.path)} />
+  </List>
+);
+
+DocsNavList.propTypes = {
+  path: PropTypes.string.isRequired,
 };
 
 DocsNavList.defaultProps = {
-  from: "/docs",
+  path: "/docs",
+};
+
+const DocsNavMenu = ({ path }) => (
+  <ul className="docsnav">
+    {getNavItems(elns_docs).map(e => {
+      const cls = classNames({
+        ["level" + e.level]: true,
+        active: path === e.to,
+      });
+      return (
+        <li className={cls} key={e.to}>
+          <Link to={e.to} exact>
+            {e.menu} {e.children && <Icon name="angle down" />}
+          </Link>
+        </li>
+      );
+    })}
+  </ul>
+);
+
+DocsNavMenu.propTypes = {
+  path: PropTypes.string,
+  tree: PropTypes.array,
 };
 
 const DocsLayout = ({ children, path }) => (
-  <Layout nav={<DocsNavMenu path={path} pages={elns_docs} />}>
+  <Layout nav={<DocsNavMenu path={path} />}>
     <Container text>
       <Breadcrumb
         icon="right angle"
@@ -167,7 +165,7 @@ const DocsLayout = ({ children, path }) => (
 
 DocsLayout.propTypes = {
   children: PropTypes.node.isRequired,
-  path: PropTypes.string,
+  path: PropTypes.string.isRequired,
 };
 
 export default DocsLayout;

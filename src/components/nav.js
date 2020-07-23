@@ -33,15 +33,16 @@ export const elns_docs = [
     },
 
     { path: "faq", menu: "FAQ", level: 2, link: true,
-      title: "Frequently asked questions",
       description: "Frequently asked questions",
     },
 
-    { path: "usage", menu: "Usage", link: true,
-      description: "The basic usage of ELNS is shown on these pages",
+    { path: "usage", menu: "Usage", link: false,
+      title: "Usage and setup",
+      description: `
+  The usage of ELNS and its user interface documentation`,
       children: [
       { path: "ui", menu: "User interface", link: true,
-        description: "This page shows the basic user interface",
+        description: "The main window and its user interface",
       },
       { path: "windows", menu: "Windows setup", link: true,
         description: `
@@ -49,36 +50,29 @@ export const elns_docs = [
       },
     ]},
 
-    { path: "functions", menu: "Functions", link: true,
+    { path: "functions", menu: "Functions", link: false,
       description: `
-  The documentation of the functions in ELNS is documented here.`,
+  Documentation of the ELNS processing functions.`,
       children: [
       { path: "passthrough", menu: "Passthrough", link: true,
-        title: "Passthrough function",
         description: `
-  This function pass audio transparently through the audio without any
-  processing.`,
+  Pass audio transparently through ELNS without any processing.`,
       },
-      { path: "matrix", menu: "Matrix Mixer", link: true,
-        title: "Matrix mixer function",
+      { path: "matrix", menu: "Matrix mixer", link: true,
         description: `
-  The matrix mixer is a function that allows arbitrary mixing of any audio
-  input to any output.`,
+  The matrix mixer supports arbitrary mixing of any audio input to any output.`,
       },
       { path: "panner", menu: "Panner", link: true,
-        title: "Panner function",
         description: `
-  The panner allows placement of stereo or mono audio to multichannel output
+  The panner enables placement of stereo or mono audio to multichannel output
   with smooth transitions.`,
       },
       { path: "quantizer", menu: "Quantizer", link: true,
-        title: "Quantizer function",
         description: `
-  The quantizer demostrates how bit quantization sounds like. It allow setting
-  an arbitrary number of bits to quantize the audio.`,
+  The quantizer demostrates how bit quantization sounds like. It supports setting
+  the number of bits to quantize the audio.`,
       },
-      { path: "biterror", menu: "Bit Error", link: true,
-        title: "Bit error function",
+      { path: "biterror", menu: "Bit error", link: true,
         description: `
   The bit error function demonstrates how audio is perceived when random error
   is injected into the audio stream.`,

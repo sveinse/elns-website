@@ -7,14 +7,17 @@ import SEO from "../components/seo";
 const SupportContents = () => (
   <Container text>
     <Header as="h1">Support</Header>
+
     <p>
       Any problems, suggestions or general feedback can be added on the GitHub
       project pages
     </p>
+
     <Button as="a" href="https://github.com/sveinse/elns-release/issues">
       To GitHub
       <Icon name="arrow right" />
     </Button>
+
     <Segment size="large" raised style={{ marginTop: "2em" }}>
       <Header as="h2">MacOS or Linux version?</Header>
       ELNS is currently only released for Windows. If you would like to use ELNS

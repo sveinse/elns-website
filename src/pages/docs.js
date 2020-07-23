@@ -14,7 +14,7 @@ const DocsContents = () => (
 
     <Segment>
       <Header as="h3">Page navigation</Header>
-      <DocsNavList from="/docs" />
+      <DocsNavList path="/docs" />
     </Segment>
   </>
 );

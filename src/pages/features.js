@@ -13,20 +13,13 @@ const Features = () => (
     <Header as="h2">Features</Header>
 
     <List bulleted>
+      <LI>Selectable audio processing functions.</LI>
+      <LI>Reads and writes a wide range of lossless file formats.</LI>
+      <LI>Full-duplex sound card input and output.</LI>
+      <LI>Interactive real-time adjustment of parameters.</LI>
+      <LI>Supports multi-channel audio, up to 8 channels.</LI>
       <LI>
-        Selectable processing audio functions, each built for a specific purpose
-        or demonstration.
-      </LI>
-      <LI>
-        Reads and writes a wide range of file formats, including lossless
-        formats such as <em>flac</em>
-      </LI>
-      <LI>Full-duplex sound card input and output</LI>
-      <LI>Interactive real-time adjustment of parameters</LI>
-      <LI>Supports multi-channel audio, up to 8 channels</LI>
-      <LI>
-        Supports high sample rates and process audio in high bit resolutions, up
-        to 32-bits per sample
+        Supports high sample rates and process audio in high bit resolutions.
       </LI>
     </List>
   </>
@@ -37,11 +30,11 @@ const Functions = () => (
     <Header as="h2">Functions</Header>
 
     <p>
-      The main functionality of ELNS comes from the functions. Each function
-      presents a separate featureset and functionality of audio processing.
+      The main purpose of ELNS is its functions. Each function presents a
+      separate featureset and functionality of audio processing.
     </p>
 
-    <DocsNavList from="/docs/functions" />
+    <DocsNavList path="/docs/functions" noicons />
   </>
 );
 

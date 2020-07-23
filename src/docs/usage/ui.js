@@ -101,6 +101,7 @@ const InputsAndOutputs = () => (
         number of input channels and output channels that this sound card
         supports.
       </Litem>
+
       <Litem header="Input">
         Sets the <strong>input file name</strong> and the{" "}
         <strong>number of input channels</strong>. If the filename field is
@@ -108,6 +109,7 @@ const InputsAndOutputs = () => (
         file, the number of input channels is read from the file and the number
         of channels cannot be altered.
       </Litem>
+
       <Litem header="Output">
         Sets the <strong>output file name</strong> and the{" "}
         <strong>number of output channels</strong>. If the filename field is

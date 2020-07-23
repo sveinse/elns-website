@@ -145,19 +145,19 @@ ul.docsnav {
   /* Text styling on level 2 links */
   font-family: inherit;
 }
-.docsnav li.selected {
-  /* Styling on seleced element */
+.docsnav li.active {
+  /* Styling on active element */
   border-left-width: 0.5em;
   border-left-style: solid;
   border-left-color: #418ed8;
   padding-left: 1em;
 }
-.docsnav .selected > a {
-  /* Styling on selected links */
+.docsnav .active > a {
+  /* Styling on active links */
   color: #3e88cc;
   font-weight: bold;
 }
-.docsnav .selected > a:hover {
+.docsnav .active > a:hover {
   color: #1967af;
 }
 

@@ -15,13 +15,13 @@ export const MaybeListContent = props => {
   );
 };
 
-export const Litem = ({ children, icon, color, header, lhas }) => (
+export const Litem = ({ children, icon, color, header }) => (
   <List.Item>
     {icon && (
       <List.Icon name={icon} size="large" verticalAlign="top" color={color} />
     )}
     <MaybeListContent if={icon}>
-      {header && <List.Header as={lhas}>{header}</List.Header>}
+      {header && <List.Header>{header}</List.Header>}
       {children}
     </MaybeListContent>
   </List.Item>
