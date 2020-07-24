@@ -8,7 +8,6 @@ import { GR, GC } from "../components/shim";
 
 import ui_analytics from "../images/ui/ui_analytics.png";
 import ui_main_first from "../images/ui/ui_main_first.png";
-import ui_passthrough from "../images/func/passthrough.png";
 import ui_matrix from "../images/func/matrix.png";
 import ui_select_sounddevice from "../images/ui/ui_select_sounddevice.png";
 

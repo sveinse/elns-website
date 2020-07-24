@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Header, Image, Icon, List } from "semantic-ui-react";
+import { Header, List } from "semantic-ui-react";
 
-import { Litem, LI } from "../components/shim";
+import { LI } from "../components/shim";
 import { DocsNavList } from "../components/docslayout";
 import Layout from "../components/layout";
 import SEO from "../components/seo";

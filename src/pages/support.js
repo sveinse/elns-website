@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Button, Icon, Segment } from "semantic-ui-react";
+import { Header, Button, Icon } from "semantic-ui-react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";

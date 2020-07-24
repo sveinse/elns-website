@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Placeholder, Image, Segment, Grid } from "semantic-ui-react";
+import { Header, Image, Segment, Grid } from "semantic-ui-react";
 
 import DocsLayout from "../../components/docslayout";
 import SEO from "../../components/seo";

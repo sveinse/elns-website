@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Divider, Button, Icon } from "semantic-ui-react";
+import { Header, Divider } from "semantic-ui-react";
 
 import DocsLayout from "../components/docslayout";
 import SEO from "../components/seo";

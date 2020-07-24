@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Image, Grid, Icon, List } from "semantic-ui-react";
+import { Header, Image, Icon, List } from "semantic-ui-react";
 
 import { Litem } from "../../components/shim";
 import DocsLayout from "../../components/docslayout";

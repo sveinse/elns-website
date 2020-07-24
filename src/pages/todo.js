@@ -1,7 +1,7 @@
 import React from "react";
 import { Header, List } from "semantic-ui-react";
 
-import { Litem, LI } from "../components/shim";
+import { LI } from "../components/shim";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 

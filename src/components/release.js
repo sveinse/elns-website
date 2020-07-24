@@ -1,4 +1,3 @@
-import React from "react";
 import semver from "semver";
 
 export const findLatest = relinfo => {
