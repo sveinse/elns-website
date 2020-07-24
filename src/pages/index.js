@@ -43,43 +43,40 @@ Banner.propTypes = {
 };
 
 const Presentation = () => (
-  <Container text>
-    <Segment vertical className="frontpage">
-      <Grid columns="equal" stackable>
-        <Grid.Row>
-          <Grid.Column>
-            <Header as="h3">Audio tool</Header>
-            <p>
-              ELNS is a tool for processing multi-channel audio, supporting
-              interactive adjustment during processing. It processes live audio
-              to or from a sound card or file in real-time.
-            </p>
-          </Grid.Column>
-          <Grid.Column>
-            <Header as="h3">DSP Functions</Header>
-            <p>
-              The tool comes with a set of audio processing functions, each
-              purposefully written to test or demonstrate a specific feature.
-              The DSP engine support a wide range of samplerates and
-              resolutions.
-            </p>
-          </Grid.Column>
-        </Grid.Row>
-        <Grid.Row>
-          <Grid.Column textAlign="center">
-            <Button size="huge" as={Link} to="/features">
-              Get started
-              <Icon name="right arrow" />
-            </Button>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>
-  </Container>
+  <Segment vertical className="frontpage solid">
+    <Grid columns="equal" stackable>
+      <Grid.Row>
+        <Grid.Column>
+          <Header as="h3">Audio tool</Header>
+          <p>
+            ELNS is a tool for processing multi-channel audio, supporting
+            interactive adjustment during processing. It processes live audio to
+            or from a sound card or file in real-time.
+          </p>
+        </Grid.Column>
+        <Grid.Column>
+          <Header as="h3">DSP Functions</Header>
+          <p>
+            The tool comes with a set of audio processing functions, each
+            purposefully written to test or demonstrate a specific feature. The
+            DSP engine support a wide range of samplerates and resolutions.
+          </p>
+        </Grid.Column>
+      </Grid.Row>
+      <Grid.Row>
+        <Grid.Column textAlign="center">
+          <Button size="huge" as={Link} to="/features">
+            Get started
+            <Icon name="right arrow" />
+          </Button>
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
+  </Segment>
 );
 
 const IndexPage = () => (
-  <Layout banner={<Banner />}>
+  <Layout banner={<Banner />} notext>
     <SEO title="Home" />
     <Presentation />
   </Layout>

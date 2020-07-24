@@ -1,19 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import {
-  Header,
-  Image,
-  Container,
-  List,
-  Segment,
-  Button,
-  Icon,
-  Divider,
-} from "semantic-ui-react";
+import { Header, Image, Segment, Divider } from "semantic-ui-react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
-import matrixwindow from "../images/ui/ui_matrix_center.png";
+
+import ui_matrix from "../images/func/matrix_8_c.png";
+import ui_panner from "../images/func/panner_move.gif";
 
 const CaseHeader = ({ title, children }) => (
   <>
@@ -23,7 +16,7 @@ const CaseHeader = ({ title, children }) => (
         {title}
       </Header>
     </Divider>
-    <Header as="h3">{children}</Header>
+    <Header as="h2">{children}</Header>
   </>
 );
 
@@ -31,7 +24,7 @@ const Case1 = () => (
   <>
     <CaseHeader title="Case 1">Playing audio into center channel</CaseHeader>
     <p>
-      <Image src={matrixwindow} />
+      <Image src={ui_matrix} />
     </p>
     <p>
       In home cinemas the center channel often has different character and
@@ -54,29 +47,39 @@ const Case1 = () => (
 
 const Case2 = () => (
   <>
-    <CaseHeader title="Case 2">Something else</CaseHeader>
-  </>
-);
-
-const Page2Contents = () => (
-  <>
-    <Container text>
-      <Header as="h1">Use cases</Header>
-      <Segment size="large" raised>
-        ELNS is a tool for processing multi-channel audio, supporting
-        interactive adjustment during processing. It processes live audio to or
-        from a sound card or file in real-time.
-      </Segment>
-      <Case1 />
-      <Case2 />
-    </Container>
+    <CaseHeader title="Case 2">Testing speaker consistency</CaseHeader>
+    <p>
+      <Image src={ui_panner} />
+    </p>
+    <p>
+      The{" "}
+      <Link to="/docs/functions/panner">
+        <strong>Panner</strong>
+      </Link>{" "}
+      allows <em>moving</em> input audio playback to a multi channel output
+      following a smooth motion. The animation shows panning of the sound from
+      the <em>center</em> to <em>L+R</em> main speakers to the <em>surround</em>{" "}
+      channels in a smooth transition. This allows evaluating the consistency of
+      the speakers in a cinema setup. &mdash; Everything done live and
+      interactively.
+    </p>
   </>
 );
 
 const Page2Page = () => (
   <Layout>
     <SEO title="Demo" />
-    <Page2Contents />
+
+    <Header as="h1">Use cases</Header>
+
+    <Segment size="large" raised>
+      ELNS is a tool for processing multi-channel audio, supporting interactive
+      adjustment during processing. It processes live audio to or from a sound
+      card or file in real-time.
+    </Segment>
+
+    <Case1 />
+    <Case2 />
   </Layout>
 );
 

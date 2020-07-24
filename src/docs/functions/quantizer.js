@@ -1,12 +1,21 @@
 import React from "react";
-import { Header } from "semantic-ui-react";
+import { Header, Image } from "semantic-ui-react";
 
 import DocsLayout from "../../components/docslayout";
 import SEO from "../../components/seo";
 
-const QuantizerContents = () => (
-  <>
+import ui_quantizer from "../../images/func/quantizer.png";
+
+const QuantizerPage = () => (
+  <DocsLayout path="/docs/functions/quantizer">
+    <SEO title="Docs" />
+
     <Header as="h1">Quantizer function</Header>
+
+    <p>
+      <Image src={ui_quantizer} fluid />
+    </p>
+
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -16,13 +25,6 @@ const QuantizerContents = () => (
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
     </p>
-  </>
-);
-
-const QuantizerPage = () => (
-  <DocsLayout path="/docs/functions/quantizer">
-    <SEO title="Docs" />
-    <QuantizerContents />
   </DocsLayout>
 );
 

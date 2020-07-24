@@ -14,8 +14,10 @@ import win_speaker_w4 from "../../images/win/win_speaker_w4.png";
 import win_device_format from "../../images/win/win_device_format.png";
 import win_device_enhancements from "../../images/win/win_device_enhancements_mark.png";
 
-const WindowsContents = () => (
-  <>
+const WindowsPage = () => (
+  <DocsLayout path="/docs/usage/windows">
+    <SEO title="Docs" />
+
     <Header as="h1">Windows setup</Header>
 
     <Header as="h4">
@@ -95,10 +97,16 @@ const WindowsContents = () => (
       or movies respectively.
     </p>
 
-    <Image.Group>
-      <Image src={win_playback_devices_properties} style={{ width: 371 }} />
-      <Image src={win_device_format} style={{ width: 371 }} />
-    </Image.Group>
+    <Grid stackable columns="2">
+      <Grid.Row>
+        <Grid.Column>
+          <Image src={win_playback_devices_properties} />
+        </Grid.Column>
+        <Grid.Column>
+          <Image src={win_device_format} />
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
 
     <Header as="h2">Disable enhancements (optional)</Header>
     <p>
@@ -111,13 +119,6 @@ const WindowsContents = () => (
     <p>
       <Image src={win_device_enhancements} style={{ width: 371 }} />
     </p>
-  </>
-);
-
-const WindowsPage = () => (
-  <DocsLayout path="/docs/usage/windows">
-    <SEO title="Docs" />
-    <WindowsContents />
   </DocsLayout>
 );
 

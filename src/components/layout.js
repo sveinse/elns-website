@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { NavLink, Link } from "react-router-dom";
 import {
@@ -51,7 +51,7 @@ const ElnsMenuButtons = ({ inverted }) => (
   </>
 );
 
-class DesktopContainer extends Component {
+class DesktopContainer extends React.Component {
   state = {};
 
   hideFixedMenu = () => this.setState({ fixed: false });
@@ -110,7 +110,7 @@ DesktopContainer.propTypes = {
   children: PropTypes.node,
 };
 
-class MobileContainer extends Component {
+class MobileContainer extends React.Component {
   state = {};
 
   handleSidebarHide = () => this.setState({ sidebarOpened: false });
@@ -177,17 +177,20 @@ const Footer = () => (
   </footer>
 );
 
-const Layout = ({ banner, nav, children }) => (
-  <div className="site flexparent">
-    <DesktopContainer banner={banner} nav={nav} className="flex flexparent">
-      {children}
-    </DesktopContainer>
-    <MobileContainer banner={banner} className="flex">
-      {children}
-    </MobileContainer>
-    <Footer />
-  </div>
-);
+const Layout = ({ banner, nav, notext, children }) => {
+  const page = <Container text={!notext}>{children}</Container>;
+  return (
+    <div className="site flexparent">
+      <DesktopContainer banner={banner} nav={nav} className="flex flexparent">
+        {page}
+      </DesktopContainer>
+      <MobileContainer banner={banner} className="flex">
+        {page}
+      </MobileContainer>
+      <Footer />
+    </div>
+  );
+};
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,

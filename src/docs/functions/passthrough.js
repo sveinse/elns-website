@@ -1,12 +1,21 @@
 import React from "react";
-import { Header } from "semantic-ui-react";
+import { Header, Image } from "semantic-ui-react";
 
 import DocsLayout from "../../components/docslayout";
 import SEO from "../../components/seo";
 
-const PassthroughContents = () => (
-  <>
+import ui_passthrough from "../../images/func/passthrough.png";
+
+const PassthroughPage = () => (
+  <DocsLayout path="/docs/functions/passthrough">
+    <SEO title="Docs" />
+
     <Header as="h1">Passthrough function</Header>
+
+    <p>
+      <Image src={ui_passthrough} fluid />
+    </p>
+
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -16,13 +25,6 @@ const PassthroughContents = () => (
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
     </p>
-  </>
-);
-
-const PassthroughPage = () => (
-  <DocsLayout path="/docs/functions/passthrough">
-    <SEO title="Docs" />
-    <PassthroughContents />
   </DocsLayout>
 );
 

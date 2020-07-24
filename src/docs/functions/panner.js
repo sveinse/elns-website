@@ -1,12 +1,21 @@
 import React from "react";
-import { Header } from "semantic-ui-react";
+import { Header, Image } from "semantic-ui-react";
 
 import DocsLayout from "../../components/docslayout";
 import SEO from "../../components/seo";
 
-const PannerContents = () => (
-  <>
+import ui_panner from "../../images/func/panner.png";
+
+const PannerPage = () => (
+  <DocsLayout path="/docs/functions/panner">
+    <SEO title="Docs" />
+
     <Header as="h1">Panner function</Header>
+
+    <p>
+      <Image src={ui_panner} fluid />
+    </p>
+
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -16,13 +25,6 @@ const PannerContents = () => (
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
     </p>
-  </>
-);
-
-const PannerPage = () => (
-  <DocsLayout path="/docs/functions/panner">
-    <SEO title="Docs" />
-    <PannerContents />
   </DocsLayout>
 );
 

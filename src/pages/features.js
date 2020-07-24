@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Header, Image, Container, Icon } from "semantic-ui-react";
+import { Header, Image, Icon, List } from "semantic-ui-react";
 
-import { List, Litem, LI } from "../components/shim";
+import { Litem, LI } from "../components/shim";
 import { DocsNavList } from "../components/docslayout";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-import mainwindow from "../images/ui/ui_main.png";
+import ui_main from "../images/ui/ui_main_all.png";
 
 const Features = () => (
   <>
@@ -80,22 +80,20 @@ const Technology = () => (
   </>
 );
 
-const FeatureContents = () => (
-  <Container text>
+const FeaturePage = () => (
+  <Layout>
+    <SEO title="Features" />
+
     <Header as="h1">Introduction</Header>
-    <Image src={mainwindow} />
+
+    <p>
+      <Image src={ui_main} />
+    </p>
 
     <Features />
     <Functions />
     <Purpose />
     <Technology />
-  </Container>
-);
-
-const FeaturePage = () => (
-  <Layout>
-    <SEO title="Features" />
-    <FeatureContents />
   </Layout>
 );
 

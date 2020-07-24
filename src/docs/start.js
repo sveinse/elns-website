@@ -1,19 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Header, Image, Icon, Button } from "semantic-ui-react";
+import { Header, Image, Icon, Button, Grid } from "semantic-ui-react";
 
 import DocsLayout from "../components/docslayout";
 import SEO from "../components/seo";
-import { GridTwo } from "../components/shim";
+import { GR, GC } from "../components/shim";
 
 import ui_analytics from "../images/ui/ui_analytics.png";
 import ui_main_first from "../images/ui/ui_main_first.png";
-import ui_main_passthrough from "../images/ui/ui_main_passthrough.png";
-import ui_main_matrix from "../images/ui/ui_main_matrix.png";
+import ui_passthrough from "../images/func/passthrough.png";
+import ui_matrix from "../images/func/matrix.png";
 import ui_select_sounddevice from "../images/ui/ui_select_sounddevice.png";
 
-const StartContents = () => (
-  <>
+const StartPage = () => (
+  <DocsLayout path="/docs/start">
+    <SEO title="Docs" />
+
     <Header as="h1">Getting started</Header>
 
     <Header as="h4">
@@ -49,26 +51,24 @@ const StartContents = () => (
 
     <Header as="h2">Analytics</Header>
 
-    <GridTwo
-      stackable
-      reversed="computer tablet"
-      width1={8}
-      width2={8}
-      child1={<Image src={ui_analytics} />}
-      child2={
-        <p>
+    <Grid stackable reversed="computer tablet">
+      <GR>
+        <GC className="fit">
+          <Image src={ui_analytics} />
+        </GC>
+        <GC className="grow">
           When ELNS is run for the first time, it will inform that ELNS is
           collecting anonymous usage data. This can be disabled by opening{" "}
           <Link to="/docs/usage/settings">settings dialog</Link> by pressing the{" "}
           <Icon name="cog" /> button on the main window toolbar.
-        </p>
-      }
-    />
+        </GC>
+      </GR>
+    </Grid>
 
     <Header as="h2">Setup</Header>
 
     <p>
-      <Image src={ui_main_first} />
+      <Image src={ui_main_first} fluid />
     </p>
 
     <p>
@@ -91,7 +91,7 @@ const StartContents = () => (
     </p>
 
     <p>
-      <Image src={ui_select_sounddevice} />
+      <Image src={ui_select_sounddevice} fluid />
     </p>
 
     <p>
@@ -107,7 +107,7 @@ const StartContents = () => (
     </p>
 
     <p>
-      <Image src={ui_main_matrix} />
+      <Image src={ui_matrix} fluid />
     </p>
 
     <p>
@@ -129,13 +129,6 @@ const StartContents = () => (
       Documentation about the functions can be found in the{" "}
       <Link to="/docs/functions">functions</Link> documentation.
     </p>
-  </>
-);
-
-const StartPage = () => (
-  <DocsLayout path="/docs/start">
-    <SEO title="Docs" />
-    <StartContents />
   </DocsLayout>
 );
 

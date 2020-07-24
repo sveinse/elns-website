@@ -1,12 +1,21 @@
 import React from "react";
-import { Header } from "semantic-ui-react";
+import { Header, Image } from "semantic-ui-react";
 
 import DocsLayout from "../../components/docslayout";
 import SEO from "../../components/seo";
 
-const MatrixContents = () => (
-  <>
+import ui_matrix from "../../images/func/matrix.png";
+
+const MatrixPage = () => (
+  <DocsLayout path="/docs/functions/matrix">
+    <SEO title="Docs" />
+
     <Header as="h1">Matrix mixer function</Header>
+
+    <p>
+      <Image src={ui_matrix} fluid />
+    </p>
+
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -16,13 +25,6 @@ const MatrixContents = () => (
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
     </p>
-  </>
-);
-
-const MatrixPage = () => (
-  <DocsLayout path="/docs/functions/matrix">
-    <SEO title="Docs" />
-    <MatrixContents />
   </DocsLayout>
 );
 

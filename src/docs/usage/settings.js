@@ -1,7 +1,7 @@
 import React from "react";
-import { Header, Image, Grid, Icon } from "semantic-ui-react";
+import { Header, Image, Grid, Icon, List } from "semantic-ui-react";
 
-import { List, Litem } from "../../components/shim";
+import { Litem } from "../../components/shim";
 import DocsLayout from "../../components/docslayout";
 import SEO from "../../components/seo";
 
@@ -18,7 +18,9 @@ const SettingDialog = () => (
       open the settings dialog.
     </p>
 
-    <Image src={ui_settings} />
+    <p>
+      <Image src={ui_settings} />
+    </p>
 
     <List bulleted divided>
       <Litem header="GUI Scale">
@@ -92,19 +94,14 @@ const UpdateDialog = () => (
   </>
 );
 
-const SettingsContents = () => (
-  <>
+const SettingsPage = () => (
+  <DocsLayout path="/docs/usage/settings">
+    <SEO title="Docs" />
+
     <Header as="h1">Settings</Header>
 
     <SettingDialog />
     <UpdateDialog />
-  </>
-);
-
-const SettingsPage = () => (
-  <DocsLayout path="/docs/usage/settings">
-    <SEO title="Docs" />
-    <SettingsContents />
   </DocsLayout>
 );
 

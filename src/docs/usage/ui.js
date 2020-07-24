@@ -1,13 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import { Header, Image, Grid, Icon } from "semantic-ui-react";
+import { Header, Image, Grid, Icon, List } from "semantic-ui-react";
 
-import { List, Litem, GridTwo } from "../../components/shim";
+import { Litem, GR, GC } from "../../components/shim";
 import DocsLayout from "../../components/docslayout";
 import SEO from "../../components/seo";
 
-import ui_main from "../../images/ui/ui_main.png";
+import ui_main from "../../images/ui/ui_main_all.png";
 import ui_main_passthrough from "../../images/ui/ui_main_passthrough.png";
 import ui_status_setup from "../../images/ui/ui_status_setup.png";
 import ui_status_error from "../../images/ui/ui_status_error.png";
@@ -121,18 +121,18 @@ const InputsAndOutputs = () => (
     </List>
 
     <Grid stackable reversed="computer tablet">
-      <Grid.Row>
-        <Grid.Column width="5">
+      <GR>
+        <GC className="fit">
           <svg viewBox="0 0 200 150" style={{ width: 200, height: 150 }}>
             <image href={ui_status_setup} />
           </svg>
-        </Grid.Column>
-        <Grid.Column width="11">
+        </GC>
+        <GC className="grow">
           The background color indicates if the configuration is valid. Green
           background indicates valid configuration, and a green background
           indicates an incorrect or missing configuration.
-        </Grid.Column>
-      </Grid.Row>
+        </GC>
+      </GR>
     </Grid>
   </>
 );
@@ -157,7 +157,7 @@ const DSPFunction = () => (
     </p>
 
     <p>
-      <svg viewBox="100 100 450 170" style={{ width: 450, height: 170 }}>
+      <svg viewBox="100 110 450 150" style={{ width: 450, height: 150 }}>
         <image href={ui_function_hover} />
       </svg>
     </p>
@@ -179,42 +179,41 @@ const AudioControls = () => (
       addition to the controls shown here.
     </p>
 
-    <GridTwo
-      stackable
-      reversed="computer tablet"
-      width1={3}
-      width2={13}
-      child1={
-        <svg viewBox="520 125 115 260" style={{ width: 115 }}>
-          <image href={ui_main_passthrough} />
-          <DocRect x="543" y="157" w="87" h="160" />
-        </svg>
-      }
-      child2={
-        <List bulleted divided>
-          <Litem header="Preset - A, B, C or D">
-            The current function parameters can be saved and recalled by
-            pressing a preset button. Selecting a preset will save the current
-            settings into the active preset and activate the clicked preset.
-          </Litem>
+    <Grid stackable reversed="computer tablet">
+      <GR>
+        <GC className="fit">
+          <svg viewBox="520 125 115 260" style={{ width: 115 }}>
+            <image href={ui_main_passthrough} />
+            <DocRect x="543" y="157" w="87" h="160" />
+          </svg>
+        </GC>
 
-          <Litem header="Bypass">
-            <strong>Bypass</strong> will stop processing of the function and
-            pass unaltered audio from input directly to output.
-          </Litem>
+        <GC className="grow">
+          <List bulleted divided>
+            <Litem header="Preset - A, B, C or D">
+              The current function parameters can be saved and recalled by
+              pressing a preset button. Selecting a preset will save the current
+              settings into the active preset and activate the clicked preset.
+            </Litem>
 
-          <Litem header="Mute">
-            <strong>Mute</strong> will silence the audio output, but the stream
-            is still kept running.
-          </Litem>
+            <Litem header="Bypass">
+              <strong>Bypass</strong> will stop processing of the function and
+              pass unaltered audio from input directly to output.
+            </Litem>
 
-          <Litem header="Reset">
-            <strong>Reset</strong> will set the current function parameters back
-            to default values.
-          </Litem>
-        </List>
-      }
-    />
+            <Litem header="Mute">
+              <strong>Mute</strong> will silence the audio output, but the
+              stream is still kept running.
+            </Litem>
+
+            <Litem header="Reset">
+              <strong>Reset</strong> will set the current function parameters
+              back to default values.
+            </Litem>
+          </List>
+        </GC>
+      </GR>
+    </Grid>
   </>
 );
 
@@ -250,15 +249,24 @@ const StatusBar = () => (
       </Litem>
 
       <Litem header="Status icon">
-        The rightmost icon shows the current program status. Hover over or
-        clicking the icon will show a popup with information about the current
-        status. Clicking on the icon will show a dialog with additional buttons.{" "}
-        <strong>Clear</strong> (only visible when errors) will dismiss and clear
-        the current error. <strong>Send diagnostics</strong> allows sending
-        diagnostics information to the author.
-        <svg viewBox="360 240 271 146" style={{ width: 271 }}>
-          <image href={ui_status_error} />
-        </svg>
+        <Grid stackable>
+          <GR>
+            <GC className="grow">
+              The rightmost icon shows the current program status. Hover over or
+              clicking the icon will show a popup with information about the
+              current status. Clicking on the icon will show a dialog with
+              additional buttons. <strong>Clear</strong> (only visible when
+              errors) will dismiss and clear the current error.{" "}
+              <strong>Send diagnostics</strong> allows sending diagnostics
+              information to the author.
+            </GC>
+            <GC className="fit">
+              <svg viewBox="360 240 271 146" style={{ width: 271 }}>
+                <image href={ui_status_error} />
+              </svg>
+            </GC>
+          </GR>
+        </Grid>
       </Litem>
     </List>
     <p />
@@ -320,24 +328,20 @@ const Statuses = () => (
 
     <List divided>
       <Litem icon="minus circle" color="grey" header="Setup">
-        <GridTwo
-          stackable
-          reversed="computer tablet"
-          width1={8}
-          width2={8}
-          child1={
-            <svg viewBox="300 275 331 83" style={{ width: 331, height: 83 }}>
-              <image href={ui_status_setup} />
-            </svg>
-          }
-          child2={
-            <p>
+        <Grid stackable>
+          <GR>
+            <GC className="grow">
               Configuration is incomplete and needs to be fixed. Hovering over
               the icon will show hints why the configuration is incomplete and
               suggest what needs to be fixed.
-            </p>
-          }
-        />
+            </GC>
+            <GC className="fit">
+              <svg viewBox="300 275 331 83" style={{ width: 331, height: 83 }}>
+                <image href={ui_status_setup} />
+              </svg>
+            </GC>
+          </GR>
+        </Grid>
       </Litem>
 
       <Litem icon="check circle" color="green" header="Ready">
@@ -355,25 +359,21 @@ const Statuses = () => (
       </Litem>
 
       <Litem icon="exclamation circle" color="red" header="Error">
-        <GridTwo
-          stackable
-          reversed="computer tablet"
-          width1={7}
-          width2={9}
-          child1={
-            <svg viewBox="360 240 271 146" style={{ width: 271 }}>
-              <image href={ui_status_error} />
-            </svg>
-          }
-          child2={
-            <p>
+        <Grid stackable>
+          <GR>
+            <GC className="grow">
               Application has failed. Hovering over the icon will show the error
               message. To resume after an error the <strong>Stop</strong> button
               must be pressed or by clicking the <strong>Clear</strong> button
               in the status popup dialog.
-            </p>
-          }
-        />
+            </GC>
+            <GC className="fit">
+              <svg viewBox="360 240 271 146" style={{ width: 271 }}>
+                <image href={ui_status_error} />
+              </svg>
+            </GC>
+          </GR>
+        </Grid>
 
         {/*<p />
         Pressing the down arrow, a more verbose technical description is show.
@@ -393,15 +393,19 @@ const Statuses = () => (
   </>
 );
 
-const UIContents = () => (
-  <>
+const UIPage = () => (
+  <DocsLayout path="/docs/usage/ui">
+    <SEO title="Docs" />
+
     <Header as="h1">User interface</Header>
 
     <Header as="h4">
       This page gives an walkthrough of the main window user interface.
     </Header>
 
-    <Image src={ui_main} size="huge" />
+    <p>
+      <Image src={ui_main} fluid />
+    </p>
 
     <MainMenuIcons />
     <InputsAndOutputs />
@@ -409,13 +413,6 @@ const UIContents = () => (
     <AudioControls />
     <StatusBar />
     <Statuses />
-  </>
-);
-
-const UIPage = () => (
-  <DocsLayout path="/docs/usage/ui">
-    <SEO title="Docs" />
-    <UIContents />
   </DocsLayout>
 );
 

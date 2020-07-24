@@ -1,11 +1,13 @@
 import React from "react";
-import { Header, Container, Button, Icon, Segment } from "semantic-ui-react";
+import { Header, Button, Icon, Segment } from "semantic-ui-react";
 
 import DocsLayout from "../components/docslayout";
 import SEO from "../components/seo";
 
-const SupportContents = () => (
-  <Container text>
+const SupportPage = () => (
+  <DocsLayout path="/docs/support">
+    <SEO title="Support" />
+
     <Header as="h1">Support</Header>
 
     <p>
@@ -17,13 +19,6 @@ const SupportContents = () => (
       To GitHub
       <Icon name="arrow right" />
     </Button>
-  </Container>
-);
-
-const SupportPage = () => (
-  <DocsLayout path="/docs/support">
-    <SEO title="Support" />
-    <SupportContents />
   </DocsLayout>
 );
 

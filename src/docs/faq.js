@@ -12,11 +12,13 @@ const Faq = ({ title, children }) => (
   </div>
 );
 
-const FaqContents = () => (
-  <>
+const FaqPage = () => (
+  <DocsLayout path="/docs/faq">
+    <SEO title="FAQ" />
+
     <Header as="h1">Frequently asked questions</Header>
 
-    <Header as="h4">
+    <Header as="h4" style={{ marginBottom: "3em" }}>
       This page contains questions and answers. If there is anything questions
       that you might have, please submit an issue on the{" "}
       <a href="https://github.com/sveinse/elns-release/issues">
@@ -37,13 +39,6 @@ const FaqContents = () => (
       supporting more platforms takes efforts and I would like to have an
       understanding of the demand.
     </Faq>
-  </>
-);
-
-const FaqPage = () => (
-  <DocsLayout path="/docs/faq">
-    <SEO title="FAQ" />
-    <FaqContents />
   </DocsLayout>
 );
 

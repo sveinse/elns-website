@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { Breadcrumb, Icon, Container, List } from "semantic-ui-react";
+import { Breadcrumb, Icon, List } from "semantic-ui-react";
 import classNames from "classnames";
 
 import { MaybeLink } from "./maybe";
@@ -151,15 +151,13 @@ DocsNavMenu.propTypes = {
 
 const DocsLayout = ({ children, path }) => (
   <Layout nav={<DocsNavMenu path={path} />}>
-    <Container text>
-      <Breadcrumb
-        icon="right angle"
-        size="large"
-        sections={getCrumbs(elns_docs, path)}
-        style={{ marginTop: "1em" }}
-      />
-      {children}
-    </Container>
+    <Breadcrumb
+      icon="right angle"
+      size="large"
+      sections={getCrumbs(elns_docs, path)}
+      style={{ marginTop: "1em" }}
+    />
+    {children}
   </Layout>
 );
 

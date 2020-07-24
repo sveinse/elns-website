@@ -1,11 +1,13 @@
 import React from "react";
-import { Header, Container, Icon, Image, Segment } from "semantic-ui-react";
+import { Header, Icon, Image, Segment } from "semantic-ui-react";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-const SponsorContents = () => (
-  <Container text>
+const SponsorPage = () => (
+  <Layout>
+    <SEO title="Sponsor" />
+
     <Header as="h1">
       Sponsor <Icon name="heart outline" color="purple" inverted />
     </Header>
@@ -39,13 +41,6 @@ const SponsorContents = () => (
         />
       </div>
     </Segment>
-  </Container>
-);
-
-const SponsorPage = () => (
-  <Layout>
-    <SEO title="Sponsor" />
-    <SponsorContents />
   </Layout>
 );
 

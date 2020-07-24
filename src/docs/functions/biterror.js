@@ -1,19 +1,21 @@
 import React from "react";
-import { Header } from "semantic-ui-react";
+import { Header, Image } from "semantic-ui-react";
 
 import DocsLayout from "../../components/docslayout";
 import SEO from "../../components/seo";
 
-export const pageInfo = {
-  title: "Bit error function",
-  description: `
-  The bit error function demonstrates how audio is perceived when random error
-  is injected into the audio stream.`,
-};
+import ui_biterror from "../../images/func/biterror.png";
 
-const BiterrorContents = () => (
-  <>
+const BiterrorPage = () => (
+  <DocsLayout path="/docs/functions/biterror">
+    <SEO title="Docs" />
+
     <Header as="h1">Bit error function</Header>
+
+    <p>
+      <Image src={ui_biterror} fluid />
+    </p>
+
     <p>
       Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
       tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
@@ -23,13 +25,6 @@ const BiterrorContents = () => (
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
     </p>
-  </>
-);
-
-const BiterrorPage = () => (
-  <DocsLayout path="/docs/functions/biterror">
-    <SEO title="Docs" />
-    <BiterrorContents />
   </DocsLayout>
 );
 

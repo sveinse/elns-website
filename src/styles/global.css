@@ -76,6 +76,12 @@ ol.ui.list li,
 .frontpage.ui.segment p {
   font-size: 1.33em;
 }
+@media only screen and (max-width: 767px) {
+  .frontpage > .ui.grid > .row > .column {
+    /* Fixup front page grid scaling in mobile view */
+    padding: 1rem 0 !important;
+  }
+}
 
 /* Wrapper for page navigation */
 .wrapper {
@@ -182,4 +188,13 @@ ul.docsnav {
 .solid {
   border: 1px;
   border-style: solid;
+}
+
+.ui.grid > .row > .column.fit {
+  /* Override grid flexbox to just fit the content */
+  width: fit-content !important;
+}
+.ui.grid > .row > .column.grow {
+  /* Override grid flexbox to fill the space */
+  flex-grow: 1;
 }
