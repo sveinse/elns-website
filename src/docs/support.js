@@ -17,16 +17,6 @@ const SupportContents = () => (
       To GitHub
       <Icon name="arrow right" />
     </Button>
-
-    <Segment size="large" raised style={{ marginTop: "2em" }}>
-      <Header as="h2">MacOS or Linux version?</Header>
-      ELNS is currently only released for Windows. If you would like to use ELNS
-      under MacOS or Linux, I would like to hear from you. Releasing for these
-      OS are under consideration, but I'd like hear your use case and how you
-      plan to use it. This info is needed for planning how and when ELNS shall
-      be released for these OS. Please submit an issue on the Github project
-      pages.
-    </Segment>
   </Container>
 );
 

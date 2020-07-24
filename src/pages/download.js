@@ -11,12 +11,12 @@ import {
   Grid,
   Divider,
 } from "semantic-ui-react";
+import filesize from "filesize";
 
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 import { findLatest } from "../components/release";
 import releases from "../release.json";
-import filesize from "filesize";
 
 const DownloadContents = () => {
   const latest = findLatest(releases);
@@ -65,18 +65,6 @@ const DownloadContents = () => {
         To GitHub
         <Icon name="arrow right" />
       </Button>
-
-      <Segment raised size="large">
-        <Header as="h2">MacOS or Linux version?</Header>
-        <p>
-          ELNS is currently only released for Windows. If you would like to use
-          ELNS under MacOS or Linux, I would like to hear from you. Releasing
-          for these OS are under consideration, but I'd like hear your use case
-          and how you plan to use it. This info is needed for planning how and
-          when ELNS shall be released for these OS. Please submit an issue on
-          the GitHub project pages.
-        </p>
-      </Segment>
     </Container>
   );
 };

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { Header, Image, Grid, Icon } from "semantic-ui-react";
-import { List, Litem } from "../../components/shim";
 
+import { List, Litem, GridTwo } from "../../components/shim";
 import DocsLayout from "../../components/docslayout";
 import SEO from "../../components/seo";
 
@@ -14,7 +14,6 @@ import ui_status_error from "../../images/ui/ui_status_error.png";
 import ui_function_hover from "../../images/ui/ui_function_hover.png";
 import ui_info_hover from "../../images/ui/ui_info_hover.png";
 import ui_info_summary from "../../images/ui/ui_info_summary.png";
-import ui_settings from "../../images/ui/ui_settings.png";
 
 const DocRect = ({ x, y, w, h }) => (
   <rect
@@ -69,7 +68,7 @@ const MainMenuIcons = () => (
         Stop the processing. It can also clear an error.
       </Litem>
 
-      <Litem icon="play" header="Start or pause">
+      <Litem icon="play" header="Start/pause">
         Start or pause the processing. While running and in pause, any of the
         configuration cannot be changed. The DSP function parameters and the
         audio control buttons on the right can be used.
@@ -82,10 +81,12 @@ const InputsAndOutputs = () => (
   <>
     <Header as="h2">Input and output configuration</Header>
 
-    <svg viewBox="0 0 631 130">
-      <image href={ui_main} />
-      <DocRect x="35" y="29" w="592" h="85" />
-    </svg>
+    <p>
+      <svg viewBox="0 0 631 130">
+        <image href={ui_main} />
+        <DocRect x="35" y="29" w="592" h="85" />
+      </svg>
+    </p>
 
     <p>
       The input/output section determines the source and destination for the
@@ -97,54 +98,55 @@ const InputsAndOutputs = () => (
         Selects the <strong>sound card device</strong> to use for audio input or
         output. The sound card will be used as input source if the input file is
         empty and it will be used as an output destination if the output file is
-        empty. The suffix "<emph>(in=X, out=Y)</emph>" indicates the maximum
-        number of input channels and output channels that this sound card
-        supports.
+        empty. The suffix "<em>(in=X, out=Y)</em>" indicates the maximum number
+        of input channels and output channels that this sound card supports. The
+        prefix "<em>[Windows DirectSound]</em>" indicates the audio system.
       </Litem>
 
       <Litem header="Input">
-        Sets the <strong>input file name</strong> and the{" "}
-        <strong>number of input channels</strong>. If the filename field is
-        blank, audio will be fetched from the audio device. If reading from a
-        file, the number of input channels is read from the file and the number
-        of channels cannot be altered.
+        Sets the <strong>number of input channels</strong> and{" "}
+        <strong>input file name</strong>. If the filename field is blank, audio
+        will be fetched from the audio device. If reading from a file, the
+        number of input channels is read from the file and the number of
+        channels cannot be altered.
       </Litem>
 
       <Litem header="Output">
-        Sets the <strong>output file name</strong> and the{" "}
-        <strong>number of output channels</strong>. If the filename field is
-        blank, the audio will be sent to the audio device output. Some functions
-        requires equal number of input channels and output channels and in these
-        cases the number of output channels cannot be set.
+        Sets the <strong>number of output channels</strong> and{" "}
+        <strong>output file name</strong>. If the filename field is blank, the
+        audio will be sent to the audio device output. Some functions requires
+        equal number of input channels and output channels and in these cases
+        the number of output channels cannot be set.
       </Litem>
     </List>
 
-    <svg viewBox="0 0 200 150" style={{ width: 200, height: 150 }}>
-      <image href={ui_status_setup} />
-    </svg>
-
-    <p>
-      The background color indicates if the configuration is valid. Green
-      background indicates valid configuration, and a green background indicates
-      an incorrect or missing configuration.
-    </p>
-
-    <p>
-      In the example shown here, the input is red because no input file has been
-      selected and the sound device does not provide any inputs (only outputs).
-      The function is also marked red because it requires a input source.
-    </p>
+    <Grid stackable reversed="computer tablet">
+      <Grid.Row>
+        <Grid.Column width="5">
+          <svg viewBox="0 0 200 150" style={{ width: 200, height: 150 }}>
+            <image href={ui_status_setup} />
+          </svg>
+        </Grid.Column>
+        <Grid.Column width="11">
+          The background color indicates if the configuration is valid. Green
+          background indicates valid configuration, and a green background
+          indicates an incorrect or missing configuration.
+        </Grid.Column>
+      </Grid.Row>
+    </Grid>
   </>
 );
 
 const DSPFunction = () => (
   <>
-    <Header as="h2">Function</Header>
+    <Header as="h2">Function selection and control</Header>
 
-    <svg viewBox="0 80 631 305">
-      <image href={ui_main} />
-      <DocRect x="42" y="116" w="504" h="230" />
-    </svg>
+    <p>
+      <svg viewBox="0 80 631 305">
+        <image href={ui_main} />
+        <DocRect x="42" y="116" w="504" h="230" />
+      </svg>
+    </p>
 
     <p>
       The audio processing function is selected with the function drop-down box.
@@ -154,9 +156,11 @@ const DSPFunction = () => (
       about the functions and their parameters.
     </p>
 
-    <svg viewBox="100 100 450 170" style={{ width: 450, height: 170 }}>
-      <image href={ui_function_hover} />
-    </svg>
+    <p>
+      <svg viewBox="100 100 450 170" style={{ width: 450, height: 170 }}>
+        <image href={ui_function_hover} />
+      </svg>
+    </p>
 
     <p>
       Hovering over the function drop-down box will show a simple function
@@ -175,41 +179,42 @@ const AudioControls = () => (
       addition to the controls shown here.
     </p>
 
-    <Grid stackable container reversed="computer tablet">
-      <Grid.Row>
-        <Grid.Column width={3} floated="right">
-          <svg viewBox="520 125 115 260" style={{ width: 115 }}>
-            <image href={ui_main_passthrough} />
-            <DocRect x="543" y="157" w="87" h="160" />
-          </svg>
-        </Grid.Column>
+    <GridTwo
+      stackable
+      reversed="computer tablet"
+      width1={3}
+      width2={13}
+      child1={
+        <svg viewBox="520 125 115 260" style={{ width: 115 }}>
+          <image href={ui_main_passthrough} />
+          <DocRect x="543" y="157" w="87" h="160" />
+        </svg>
+      }
+      child2={
+        <List bulleted divided>
+          <Litem header="Preset - A, B, C or D">
+            The current function parameters can be saved and recalled by
+            pressing a preset button. Selecting a preset will save the current
+            settings into the active preset and activate the clicked preset.
+          </Litem>
 
-        <Grid.Column width={13}>
-          <List bulleted divided>
-            <Litem header="Preset - A, B, C or D">
-              The current function parameters can be saved and recalled by
-              pressing a preset button. Selecting a preset will save the current
-              settings into the active preset and activate the clicked preset.
-            </Litem>
+          <Litem header="Bypass">
+            <strong>Bypass</strong> will stop processing of the function and
+            pass unaltered audio from input directly to output.
+          </Litem>
 
-            <Litem header="Bypass">
-              <strong>Bypass</strong> will stop processing of the function and
-              pass unaltered audio from input directly to output.
-            </Litem>
+          <Litem header="Mute">
+            <strong>Mute</strong> will silence the audio output, but the stream
+            is still kept running.
+          </Litem>
 
-            <Litem header="Mute">
-              <strong>Mute</strong> will silence the audio output, but the
-              stream is still kept running.
-            </Litem>
-
-            <Litem header="Reset">
-              <strong>Reset</strong> will set the current function parameters
-              back to default values.
-            </Litem>
-          </List>
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
+          <Litem header="Reset">
+            <strong>Reset</strong> will set the current function parameters back
+            to default values.
+          </Litem>
+        </List>
+      }
+    />
   </>
 );
 
@@ -315,16 +320,24 @@ const Statuses = () => (
 
     <List divided>
       <Litem icon="minus circle" color="grey" header="Setup">
-        Configuration is incomplete and needs to be fixed. Hovering over the
-        icon will show hints why the configuration is incomplete and suggest
-        what needs to be fixed.
-        <svg
-          className="ui right floated image"
-          viewBox="300 255 331 103"
-          style={{ width: 331, height: 103 }}
-        >
-          <image href={ui_status_setup} />
-        </svg>
+        <GridTwo
+          stackable
+          reversed="computer tablet"
+          width1={8}
+          width2={8}
+          child1={
+            <svg viewBox="300 275 331 83" style={{ width: 331, height: 83 }}>
+              <image href={ui_status_setup} />
+            </svg>
+          }
+          child2={
+            <p>
+              Configuration is incomplete and needs to be fixed. Hovering over
+              the icon will show hints why the configuration is incomplete and
+              suggest what needs to be fixed.
+            </p>
+          }
+        />
       </Litem>
 
       <Litem icon="check circle" color="green" header="Ready">
@@ -342,13 +355,26 @@ const Statuses = () => (
       </Litem>
 
       <Litem icon="exclamation circle" color="red" header="Error">
-        Application has failed. Hovering over the icon will show the error
-        message. To resume after an error the <strong>Stop</strong> button must
-        be pressed or by clicking the <strong>Clear</strong> button in the
-        status popup dialog.
-        <svg viewBox="360 240 271 146" style={{ width: 271 }}>
-          <image href={ui_status_error} />
-        </svg>
+        <GridTwo
+          stackable
+          reversed="computer tablet"
+          width1={7}
+          width2={9}
+          child1={
+            <svg viewBox="360 240 271 146" style={{ width: 271 }}>
+              <image href={ui_status_error} />
+            </svg>
+          }
+          child2={
+            <p>
+              Application has failed. Hovering over the icon will show the error
+              message. To resume after an error the <strong>Stop</strong> button
+              must be pressed or by clicking the <strong>Clear</strong> button
+              in the status popup dialog.
+            </p>
+          }
+        />
+
         {/*<p />
         Pressing the down arrow, a more verbose technical description is show.
         While these messages are not intended for the end-user, the
@@ -364,81 +390,6 @@ const Statuses = () => (
         the application can only be exited.
       </Litem>
     </List>
-  </>
-);
-
-const SettingDialog = () => (
-  <>
-    <Header as="h2">Settings</Header>
-
-    <p>
-      Pressing the <Icon name="cog" /> button on the menu will open the settings
-      dialog.
-    </p>
-
-    <Grid stackable container reversed="computer tablet">
-      <Grid.Row>
-        <Grid.Column width={6} floated="right">
-          <Image src={ui_settings} />
-        </Grid.Column>
-        <Grid.Column width={10}>
-          <List bulleted divided>
-            <Litem header="GUI Scale">
-              Sets the scale for the window interface. Some high-DPI screens
-              might need to manually set this to get the text large enough.
-            </Litem>
-
-            <Litem header="Enable audio">
-              Turn on or off sound card audio. Some sound card drivers stops
-              working when starting ELNS and this option allows disabling audio.
-              When the sound card has been disabled, only file input and output
-              is possible.
-            </Litem>
-
-            <Litem header="Process in realtime">
-              If both the input and the output is a file, this option controls
-              the processing speed. If enabled, the processing will occur in a
-              real-time rate, meaning that if the input file is 1 minute, the
-              processing will take 1 minute. If disabled, the processing will
-              progress as fast as possible.
-            </Litem>
-
-            <Litem header="Samplerate">
-              The processing samplerate. When reading from an input file, this
-              will be ignored as the engine will use the samplerate read from
-              the input file. The application does not support resampling.
-            </Litem>
-
-            <Litem header="Processing encoding">
-              Set the preferred processing encoding type. Chose from integer
-              types
-              <code>pcm16</code>, <code>pcm32</code> and <code>pcm64</code>, or
-              from the floating-point types <code>float32</code> and{" "}
-              <code>float64</code>. The number indicates the number of bits per
-              sample.
-            </Litem>
-
-            <Litem header="Latency">
-              Set the wanted latency for the processing. It useful when using
-              real-time sound card input and output, where low latency is
-              desireable. Lower values reduces overall latency, but increases
-              strain on the computer. If playback stuttering is experiences, the
-              number must be increased. The lowest practical value is limited by
-              the sound card drivers.
-            </Litem>
-
-            <Litem header="Headroom">
-              When processing in pcm integer mode, extra headroom can be added
-              to reduce the risk for running into internal overload.
-            </Litem>
-
-            <Litem header="Output file format">
-              Set the output file format.
-            </Litem>
-          </List>
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>
   </>
 );
 
@@ -458,7 +409,6 @@ const UIContents = () => (
     <AudioControls />
     <StatusBar />
     <Statuses />
-    <SettingDialog />
   </>
 );
 

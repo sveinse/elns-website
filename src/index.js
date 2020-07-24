@@ -23,6 +23,7 @@ import SupportPage from "./docs/support";
 import FaqPage from "./docs/faq";
 
 import UIPage from "./docs/usage/ui";
+import SettingsPage from "./docs/usage/settings";
 import WindowsPage from "./docs/usage/windows";
 import UsagePage from "./docs/usage";
 
@@ -34,6 +35,7 @@ import BiterrorPage from "./docs/functions/biterror";
 import FunctionsPage from "./docs/functions";
 
 import DocsPage from "./pages/docs";
+import TodoPage from "./pages/todo";
 import NotFoundPage from "./pages/404";
 
 // prettier-ignore
@@ -54,6 +56,7 @@ ReactDOM.render(
           <Route exact path="/docs/faq" component={FaqPage} />
 
           <Route exact path="/docs/usage/ui" component={UIPage} />
+          <Route exact path="/docs/usage/settings" component={SettingsPage} />
           <Route exact path="/docs/usage/windows" component={WindowsPage} />
           <Route exact path="/docs/usage" component={UsagePage} />
 
@@ -65,6 +68,7 @@ ReactDOM.render(
           <Route exact path="/docs/functions" component={FunctionsPage} />
 
           <Route exact path="/docs" component={DocsPage} />
+          <Route exact path="/todo" component={TodoPage} />
 
           <Route path="*" component={NotFoundPage} />
         </Switch>

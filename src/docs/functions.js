@@ -10,7 +10,7 @@ const FunctionsContents = () => (
 
     <p>
       ELNS supports a wide range of audio processing functions. Click on the
-      links below to learn more about the functions.
+      links below to learn more about the specific functions.
     </p>
 
     <Segment>

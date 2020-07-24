@@ -44,6 +44,9 @@ export const elns_docs = [
       { path: "ui", menu: "User interface", link: true,
         description: "The main window and its user interface",
       },
+      { path: "settings", menu: "Settings", link: true,
+        description: "Settings and dialog screens",
+      },
       { path: "windows", menu: "Windows setup", link: true,
         description: `
   This page explains how to setup Windows with multi-channel audio`,

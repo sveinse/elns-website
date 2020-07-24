@@ -167,7 +167,12 @@ MobileContainer.propTypes = {
 const Footer = () => (
   <footer>
     <Segment inverted vertical>
-      <Container>ELNS (C) 2020 Svein Seldal</Container>
+      <Container>
+        ELNS (C) 2020 Svein Seldal{" "}
+        <Button as={Link} to="/todo" inverted>
+          Todo
+        </Button>
+      </Container>
     </Segment>
   </footer>
 );

@@ -1,5 +1,5 @@
 import React from "react";
-import { List as _List } from "semantic-ui-react";
+import { List as _List, Grid } from "semantic-ui-react";
 
 export const List = _List;
 export const LI = _List.Item;
@@ -26,3 +26,17 @@ export const Litem = ({ children, icon, color, header }) => (
     </MaybeListContent>
   </List.Item>
 );
+
+export const GridTwo = props => {
+  const { width1, width2, child1, child2, children, ...gprops } = props;
+  const children1 = child1 ?? children;
+  const children2 = child2 ?? children;
+  return (
+    <Grid {...gprops}>
+      <Grid.Row>
+        <Grid.Column width={width1}>{children1}</Grid.Column>
+        <Grid.Column width={width2}>{children2}</Grid.Column>
+      </Grid.Row>
+    </Grid>
+  );
+};
