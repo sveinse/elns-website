@@ -7,11 +7,11 @@ import { DocsNavList } from "../components/docslayout";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
-import ui_main from "../images/ui/ui_main_all.png";
+//import ui_main from "../images/ui/ui_main_all.png";
 
 const Features = () => (
   <>
-    <Header as="h2">Features</Header>
+    {/*<Header as="h2">Features</Header>*/}
 
     <List bulleted>
       <LI>Selectable audio processing functions.</LI>
@@ -84,11 +84,11 @@ const FeaturePage = () => (
   <Layout>
     <SEO title="Features" />
 
-    <Header as="h1">Introduction</Header>
+    <Header as="h1">Features</Header>
 
-    <p>
+    {/*<p>
       <Image src={ui_main} />
-    </p>
+    </p>*/}
 
     <Features />
     <Functions />

@@ -8,10 +8,13 @@ import SEO from "../../components/seo";
 import ui_settings from "../../images/ui/ui_settings.png";
 import ui_updates from "../../images/ui/ui_updates.png";
 import ui_updates_beta from "../../images/ui/ui_updates_beta.png";
+import ui_diagnostics from "../../images/ui/ui_diagnostics.png";
 
 const SettingDialog = () => (
   <>
-    <Header as="h2">Settings</Header>
+    <Header as="h2" id="settings">
+      Settings
+    </Header>
 
     <p>
       Pressing the <Icon name="cog" /> button on the menu window toolbar will
@@ -82,7 +85,9 @@ const SettingDialog = () => (
 
 const UpdateDialog = () => (
   <>
-    <Header as="h2">Update dialog</Header>
+    <Header as="h2" id="update">
+      Update dialog
+    </Header>
 
     <p>
       Pressing the <Icon name="cube" /> button on the menu window toolbar will
@@ -94,6 +99,18 @@ const UpdateDialog = () => (
   </>
 );
 
+const DiagnosticsDialog = () => (
+  <>
+    <Header as="h2" id="diagnostics">
+      Errors and diagnostics
+    </Header>
+
+    <p>
+      <Image src={ui_diagnostics} />
+    </p>
+  </>
+);
+
 const SettingsPage = () => (
   <DocsLayout path="/docs/usage/settings">
     <SEO title="Docs" />
@@ -102,6 +119,7 @@ const SettingsPage = () => (
 
     <SettingDialog />
     <UpdateDialog />
+    <DiagnosticsDialog />
   </DocsLayout>
 );
 

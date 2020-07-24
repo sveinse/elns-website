@@ -13,7 +13,9 @@ const MatrixPage = () => (
     <Header as="h1">Matrix mixer function</Header>
 
     <p>
-      <Image src={ui_matrix} fluid />
+      <svg viewBox="40 113 588 230" className="solid">
+        <image href={ui_matrix} />
+      </svg>
     </p>
 
     <p>

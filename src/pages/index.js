@@ -65,7 +65,7 @@ const Presentation = () => (
       </Grid.Row>
       <Grid.Row>
         <Grid.Column textAlign="center">
-          <Button size="huge" as={Link} to="/features">
+          <Button size="huge" as={Link} to="/docs/start">
             Get started
             <Icon name="right arrow" />
           </Button>

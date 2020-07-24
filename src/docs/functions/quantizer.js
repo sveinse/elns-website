@@ -13,7 +13,9 @@ const QuantizerPage = () => (
     <Header as="h1">Quantizer function</Header>
 
     <p>
-      <Image src={ui_quantizer} fluid />
+      <svg viewBox="40 113 588 210" className="solid">
+        <image href={ui_quantizer} />
+      </svg>
     </p>
 
     <p>

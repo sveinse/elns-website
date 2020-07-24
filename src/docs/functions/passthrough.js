@@ -13,7 +13,9 @@ const PassthroughPage = () => (
     <Header as="h1">Passthrough function</Header>
 
     <p>
-      <Image src={ui_passthrough} fluid />
+      <svg viewBox="40 113 588 210" className="solid">
+        <image href={ui_passthrough} />
+      </svg>
     </p>
 
     <p>

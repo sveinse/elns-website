@@ -39,6 +39,11 @@ const FaqPage = () => (
       supporting more platforms takes efforts and I would like to have an
       understanding of the demand.
     </Faq>
+
+    {/*
+    - Why not mp3
+    - Windows sound systems
+    */}
   </DocsLayout>
 );
 

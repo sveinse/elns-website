@@ -13,7 +13,9 @@ const BiterrorPage = () => (
     <Header as="h1">Bit error function</Header>
 
     <p>
-      <Image src={ui_biterror} fluid />
+      <svg viewBox="40 113 588 210" className="solid">
+        <image href={ui_biterror} />
+      </svg>
     </p>
 
     <p>

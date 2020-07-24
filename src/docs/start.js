@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Header, Image, Icon, Button, Grid } from "semantic-ui-react";
+import { Header, Image, Icon, Button, Grid, Segment } from "semantic-ui-react";
 
 import DocsLayout from "../components/docslayout";
 import SEO from "../components/seo";
@@ -37,8 +37,8 @@ const StartPage = () => (
       <strong>Setup</strong>. The standalone variant can be run directly without
       being installed while the setup variant is for installing ELNS on the
       computer. The installed program will start faster than the standalone,
-      while the standalone can easily be moved used on other computers without
-      installation.
+      while the standalone is portable and can easily be moved used on other
+      computers without installation.
     </p>
 
     <Header as="h2">Configuring Windows</Header>
@@ -65,16 +65,15 @@ const StartPage = () => (
       </GR>
     </Grid>
 
-    <Header as="h2">Setup</Header>
-
-    <p>
-      <Image src={ui_main_first} fluid />
-    </p>
+    <Header as="h2">Running ELNS</Header>
 
     <p>
       Starting ELNS for the first time shows a main window without any
-      configuration. The <Link to="/docs/ui">user interface</Link> page explains
-      in detail the user interface.
+      configuration.
+    </p>
+
+    <p>
+      <Image src={ui_main_first} fluid />
     </p>
 
     <p>
@@ -85,9 +84,14 @@ const StartPage = () => (
       and output channels that device supports.
     </p>
 
+    <Segment raised style={{ background: "#dddddd" }}>
+      <Icon name="info" size="big" />
+      Learn more about the <Link to="/docs/usage/ui">user interface</Link>
+    </Segment>
+
     <p>
       Please select a sound device with at least <strong>2 output</strong>{" "}
-      channels using <strong>[Windows DirectSound]</strong> sound system.
+      channels using the <strong>[Windows DirectSound]</strong> sound system.
     </p>
 
     <p>
@@ -103,7 +107,7 @@ const StartPage = () => (
       Finally select a processing function <strong>Matrix mixer</strong>. This
       should result in a window with green colors in the . The bottom right
       status icon <Icon name="check circle" color="green" /> indicates that the
-      configuration is successful.
+      configuration is successful and ready for processing.
     </p>
 
     <p>
@@ -111,24 +115,45 @@ const StartPage = () => (
     </p>
 
     <p>
-      The main area of the window contains the interface for the selected
+      The center area of the window contains the interface for the selected
       function. With the selected <em>Matrix mixer</em> function, the interface
-      allows settings which input is sent to which output with the green
-      selections. These settings including the audio control buttons on the
-      right side can be operated during processing.
+      allows settings which input is sent to which output. Use the left mouse
+      button to select/deselect routing. A green box indicates that the selected
+      input channel number (the rows on the left side) is connected to the
+      selected output channel number (the columns on top).
     </p>
+
+    <p>
+      The number in the green box indicates that the input is sent +0.0dB into
+      the output, which is fully on. A negative value indicates attenuation in
+      dB and it can be adjusted using the mouse wheel. A right click on the
+      mouse will swap the phase of the signal and is indicated by a red color.
+    </p>
+
+    <Segment raised style={{ background: "#dddddd" }}>
+      <Icon name="info" size="big" />
+      Learn more about the{" "}
+      <Link to="/docs/functions/matrix">matrix mixer function</Link>
+    </Segment>
 
     <p>
       The processing can be started by pressing the <Icon name="play" /> icon,
-      which will play the file to on the selected sound device.
+      which will play the file to on the selected sound device. Any of these
+      parameters can be adjusted while processing is running.
     </p>
 
+    <Header as="h2">Next steps</Header>
+
     <p>
-      More information about the user interface can be found in the{" "}
-      <Link to="/docs/usage/ui">user interface</Link> documentation.
-      Documentation about the functions can be found in the{" "}
-      <Link to="/docs/functions">functions</Link> documentation.
+      In this walkthrough the Matrix mixer was used. ELNS supports other
+      functions. Please go to the{" "}
+      <Link to="/docs/functions">functions page</Link> for an overview.
     </p>
+
+    <Segment raised style={{ background: "#dddddd" }}>
+      <Icon name="info" size="big" />
+      Go to the <Link to="/docs">documentation</Link>
+    </Segment>
   </DocsLayout>
 );
 

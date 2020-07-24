@@ -13,7 +13,9 @@ const PannerPage = () => (
     <Header as="h1">Panner function</Header>
 
     <p>
-      <Image src={ui_panner} fluid />
+      <svg viewBox="40 113 602 550" className="solid">
+        <image href={ui_panner} />
+      </svg>
     </p>
 
     <p>

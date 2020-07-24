@@ -1,7 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Header, Image, Segment, Divider } from "semantic-ui-react";
+import {
+  Header,
+  Image,
+  Segment,
+  Divider,
+  Button,
+  Icon,
+  Grid,
+} from "semantic-ui-react";
 
+import { GR, GC } from "../components/shim";
 import Layout from "../components/layout";
 import SEO from "../components/seo";
 
@@ -24,7 +33,7 @@ const Case1 = () => (
   <>
     <CaseHeader title="Case 1">Playing audio into center channel</CaseHeader>
     <p>
-      <Image src={ui_matrix} />
+      <Image src={ui_matrix} fluid />
     </p>
     <p>
       In home cinemas the center channel often has different character and
@@ -49,7 +58,7 @@ const Case2 = () => (
   <>
     <CaseHeader title="Case 2">Testing speaker consistency</CaseHeader>
     <p>
-      <Image src={ui_panner} />
+      <Image src={ui_panner} fluid />
     </p>
     <p>
       The{" "}
@@ -73,9 +82,21 @@ const Page2Page = () => (
     <Header as="h1">Use cases</Header>
 
     <Segment size="large" raised>
-      ELNS is a tool for processing multi-channel audio, supporting interactive
-      adjustment during processing. It processes live audio to or from a sound
-      card or file in real-time.
+      <Grid verticalAlign="middle">
+        <GR>
+          <GC className="grow">
+            ELNS is a tool for processing multi-channel audio, supporting
+            interactive adjustment during processing. It processes live audio to
+            or from a sound card or file in real-time.
+          </GC>
+          <GC className="fit">
+            <Button as={Link} color="blue" to="/docs/start">
+              Get started
+              <Icon name="right arrow" />
+            </Button>
+          </GC>
+        </GR>
+      </Grid>
     </Segment>
 
     <Case1 />

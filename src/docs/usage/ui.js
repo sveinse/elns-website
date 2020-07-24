@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import { Header, Image, Grid, Icon, List } from "semantic-ui-react";
+import { Header, Image, Grid, Icon, List, Segment } from "semantic-ui-react";
 
 import { Litem, GR, GC } from "../../components/shim";
 import DocsLayout from "../../components/docslayout";
@@ -82,7 +82,7 @@ const InputsAndOutputs = () => (
     <Header as="h2">Input and output configuration</Header>
 
     <p>
-      <svg viewBox="0 0 631 130">
+      <svg viewBox="0 0 631 125">
         <image href={ui_main} />
         <DocRect x="35" y="29" w="592" h="85" />
       </svg>
@@ -100,7 +100,7 @@ const InputsAndOutputs = () => (
         empty and it will be used as an output destination if the output file is
         empty. The suffix "<em>(in=X, out=Y)</em>" indicates the maximum number
         of input channels and output channels that this sound card supports. The
-        prefix "<em>[Windows DirectSound]</em>" indicates the audio system.
+        prefix in "<em>[brackets]</em>" indicates the audio system.
       </Litem>
 
       <Litem header="Input">
@@ -139,12 +139,12 @@ const InputsAndOutputs = () => (
 
 const DSPFunction = () => (
   <>
-    <Header as="h2">Function selection and control</Header>
+    <Header as="h2">Function selection and interface</Header>
 
     <p>
       <svg viewBox="0 80 631 305">
         <image href={ui_main} />
-        <DocRect x="42" y="116" w="504" h="230" />
+        <DocRect x="42" y="116" w="504" h="232" />
       </svg>
     </p>
 
@@ -182,7 +182,7 @@ const AudioControls = () => (
     <Grid stackable reversed="computer tablet">
       <GR>
         <GC className="fit">
-          <svg viewBox="520 125 115 260" style={{ width: 115 }}>
+          <svg viewBox="520 125 112 235" style={{ width: 112, height: 235 }}>
             <image href={ui_main_passthrough} />
             <DocRect x="543" y="157" w="87" h="160" />
           </svg>
@@ -245,7 +245,14 @@ const StatusBar = () => (
         The info field will show info about the audio processing:{" "}
         <strong>Samplerate / Encoding / Latency</strong>. Hovering over the
         field will show additional technical information about the processing.
-        See section XXX for additional information.
+        See{" "}
+        <HashLink
+          to="#info"
+          scroll={el => el.scrollIntoView({ behavior: "smooth" })}
+        >
+          program info
+        </HashLink>{" "}
+        section for more information.
       </Litem>
 
       <Litem header="Status icon">
@@ -255,13 +262,23 @@ const StatusBar = () => (
               The rightmost icon shows the current program status. Hover over or
               clicking the icon will show a popup with information about the
               current status. Clicking on the icon will show a dialog with
-              additional buttons. <strong>Clear</strong> (only visible when
-              errors) will dismiss and clear the current error.{" "}
-              <strong>Send diagnostics</strong> allows sending diagnostics
-              information to the author.
+              additional buttons. <strong>Close</strong> will close the dialog.{" "}
+              <strong>Clear</strong> (only errors) will dismiss and clear the
+              current error. <strong>Send diagnostics</strong> allows sending
+              diagnostics information to the author. See{" "}
+              <HashLink
+                to="/docs/usage/settings#info"
+                scroll={el => el.scrollIntoView({ behavior: "smooth" })}
+              >
+                diagnostics dialog
+              </HashLink>{" "}
+              documentation for more information.
             </GC>
             <GC className="fit">
-              <svg viewBox="360 240 271 146" style={{ width: 271 }}>
+              <svg
+                viewBox="360 240 271 146"
+                style={{ width: 271, height: 146 }}
+              >
                 <image href={ui_status_error} />
               </svg>
             </GC>
@@ -270,49 +287,6 @@ const StatusBar = () => (
       </Litem>
     </List>
     <p />
-    {/*}
-    <strong>Samplerate</strong> is the running processing rate.{" "}
-    <strong>Encoding</strong> shows the sample type and width which the
-    processing is running at. E.g. <em>pcm32</em> indicates a 32-bit PCM integer
-    type. <strong>Latency</strong> shows the overall processing latency, which
-    is the time delay from input to output.
-    <p />
-    <p>
-      Hovering over the <strong>info</strong> field will show additional
-      technical information about the processing. See section XXX for additional
-      information.
-    </p>
-    or status icon will show a tooltip with additional information. Clicking on
-    the status icon open up a status dialog that enables to dismiss the error
-    and*/}
-    {/*
-     The info filed tooltip will show additional
-    technical information about the processing, while hovering During playback,
-    hovering over the info area will show a tooltip with processing diagnostic
-    information. The most important figure is the{" "}
-    <strong>real-time figure</strong>, e.g.
-    <code>(1.1% RT)</code>. Less than 100% indicates that the computer is able
-    process the audio real-time. Higher than 100% indicates that the CPU is
-    unable to process the audio in real-time.
-    <Image src={ui_info_hover} inline={false} />
-    <p />
-    During pause or after processing, hovering over the info area will show a
-    short summary of the processing performance data.
-    <Image src={ui_info_summary} />*/}
-    {/*<Grid stackable container columns="equal">
-      <Grid.Row>
-        <Grid.Column>
-          <svg viewBox="300 220 631 305">
-            <image href={ui_status_setup} />
-          </svg>
-        </Grid.Column>
-        <Grid.Column>
-          <svg viewBox="300 220 631 305">
-            <image href={ui_status_error} />
-          </svg>
-        </Grid.Column>
-      </Grid.Row>
-    </Grid>*/}
   </>
 );
 
@@ -336,7 +310,7 @@ const Statuses = () => (
               suggest what needs to be fixed.
             </GC>
             <GC className="fit">
-              <svg viewBox="300 275 331 83" style={{ width: 331, height: 83 }}>
+              <svg viewBox="300 265 331 93" style={{ width: 331, height: 93 }}>
                 <image href={ui_status_setup} />
               </svg>
             </GC>
@@ -363,25 +337,21 @@ const Statuses = () => (
           <GR>
             <GC className="grow">
               Application has failed. Hovering over the icon will show the error
-              message. To resume after an error the <strong>Stop</strong> button
-              must be pressed or by clicking the <strong>Clear</strong> button
-              in the status popup dialog.
+              message. To resume after an error either click the{" "}
+              <Icon name="stop" />
+              stop button or the <strong>Clear</strong> button in the status
+              dialog. Status will then go back to the ready state.
             </GC>
             <GC className="fit">
-              <svg viewBox="360 240 271 146" style={{ width: 271 }}>
+              <svg
+                viewBox="370 250 261 136"
+                style={{ width: 261, height: 136 }}
+              >
                 <image href={ui_status_error} />
               </svg>
             </GC>
           </GR>
         </Grid>
-
-        {/*<p />
-        Pressing the down arrow, a more verbose technical description is show.
-        While these messages are not intended for the end-user, the
-        <strong>Send diagnostics</strong> button can be used to send information
-        about the crash to the author. The <strong>Clear</strong> button will
-        dismiss and clear the error.
-        <Image src={old_ui_status_error_expanded} inline={false} />*/}
       </Litem>
 
       <Litem icon="times circle" color="red" header="Fatal">
@@ -390,6 +360,84 @@ const Statuses = () => (
         the application can only be exited.
       </Litem>
     </List>
+  </>
+);
+
+const Info = () => (
+  <>
+    <Header as="h2" id="info">
+      Audio processing info
+    </Header>
+
+    <Segment raised style={{ background: "#dddddd" }}>
+      <Icon name="info" size="big" />
+      This section is advanced topic and not essential for the basic usage of
+      ELNS.
+    </Segment>
+
+    <p>
+      The info area on the status bar next to the status icon shows three
+      fields: <strong>Samplerate / Encoding / Latency</strong>.
+    </p>
+
+    <List bulleted>
+      <Litem header="Samplerate">The current processing samplerate</Litem>
+      <Litem header="Encoding">
+        shows the sample type and width which the processing is running at. E.g.{" "}
+        <em>pcm32</em> indicates a 32-bit PCM integer type, while{" "}
+        <em>float32</em>
+        is using 32-bit floating-point encoding.
+      </Litem>
+      <Litem header="Latency">
+        shows the overall processing latency, which is the time delay from input
+        to output.
+      </Litem>
+    </List>
+
+    <p>
+      Hovering over the info area during processing will show additional
+      technical information and statistics from the processing.
+    </p>
+
+    <p>
+      <svg viewBox="170 315 461 66">
+        <image href={ui_info_hover} />
+      </svg>
+    </p>
+
+    <p>From left to right, these fields are</p>
+
+    <List bulleted>
+      <Litem header="Total processing time" />
+      <Litem header="Current block number (+ delta)">
+        Delta represents the number of blocks processed since last log entry
+      </Litem>
+      <Litem header="RT, Real-time target (Samples per block)">
+        The time of audio data represented in one block. The number of samples
+        per block is listed in parenthesis.
+      </Litem>
+      <Litem header="Processing time per block (% of real-time)">
+        The total amount of time ELNS used for processing one block. The %RT
+        (real-time) figure in parenthesis indicates how big fraction of the time
+        spent processing. It is an indicator if the computer is capable of
+        keeping up with processing the data in real-time.
+      </Litem>
+      <Litem header="DSP processing time">
+        The amount of time spent in the core function DSP processing algorithm.
+      </Litem>
+    </List>
+
+    <p>
+      When pausing or stopping processing, a processing summary information will
+      be shown. It contains additional aggregated statistics about the
+      processing.
+    </p>
+
+    <p>
+      <svg viewBox="125 280 506 101">
+        <image href={ui_info_summary} />
+      </svg>
+    </p>
   </>
 );
 
@@ -413,6 +461,7 @@ const UIPage = () => (
     <AudioControls />
     <StatusBar />
     <Statuses />
+    <Info />
   </DocsLayout>
 );
 

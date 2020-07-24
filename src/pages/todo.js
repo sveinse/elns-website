@@ -14,9 +14,10 @@ const TodoPage = () => (
     <List bulleted>
       <LI>Write about Windows sound systems</LI>
       <LI>Sample rate converting</LI>
-      <LI>Add section "Info field" in ui</LI>
       <LI>Fix repeat icon in docs</LI>
       <LI>Add release date to release.json</LI>
+      <LI>Fix navigation</LI>
+      <LI>Write the settings page</LI>
     </List>
   </Layout>
 );
