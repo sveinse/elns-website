@@ -82,7 +82,7 @@ const Page2Page = () => (
     <Header as="h1">Use cases</Header>
 
     <Segment size="large" raised>
-      <Grid verticalAlign="middle">
+      <Grid verticalAlign="middle" stackable>
         <GR>
           <GC className="grow">
             ELNS is a tool for processing multi-channel audio, supporting
