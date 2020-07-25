@@ -1,12 +1,12 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import { Breadcrumb, Icon, List } from "semantic-ui-react";
 import classNames from "classnames";
 
-import { MaybeLink } from "./maybe";
-import { elns_docs } from "./nav";
-import Layout from "./layout";
+import { Link } from "components/router";
+import { MaybeLink } from "components/maybe";
+import { elns_docs } from "components/nav";
+import Layout from "components/layout";
 
 const getCrumbs = (tree, path) => {
   let crumbs = [];

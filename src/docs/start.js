@@ -1,15 +1,15 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Header, Image, Icon, Button, Grid, Segment } from "semantic-ui-react";
 
-import DocsLayout from "../components/docslayout";
-import SEO from "../components/seo";
-import { GR, GC } from "../components/shim";
+import { Link } from "components/router";
+import DocsLayout from "components/docslayout";
+import SEO from "components/seo";
+import { GR, GC } from "components/shim";
 
-import ui_analytics from "../images/ui/ui_analytics.png";
-import ui_main_first from "../images/ui/ui_main_first.png";
-import ui_matrix from "../images/func/matrix.png";
-import ui_select_sounddevice from "../images/ui/ui_select_sounddevice.png";
+import ui_analytics from "images/ui/ui_analytics.png";
+import ui_main_first from "images/ui/ui_main_first.png";
+import ui_matrix from "images/func/matrix.png";
+import ui_select_sounddevice from "images/ui/ui_select_sounddevice.png";
 
 const StartPage = () => (
   <DocsLayout path="/docs/start">

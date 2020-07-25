@@ -1,8 +1,8 @@
 import React from "react";
 import { Header, Segment } from "semantic-ui-react";
 
-import DocsLayout, { DocsNavList } from "../components/docslayout";
-import SEO from "../components/seo";
+import DocsLayout, { DocsNavList } from "components/docslayout";
+import SEO from "components/seo";
 
 const UsagePage = () => (
   <DocsLayout path="/docs/usage">

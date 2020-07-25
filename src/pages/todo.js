@@ -1,9 +1,9 @@
 import React from "react";
 import { Header, List } from "semantic-ui-react";
 
-import { LI } from "../components/shim";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import { LI } from "components/shim";
+import Layout from "components/layout";
+import SEO from "components/seo";
 
 const TodoPage = () => (
   <Layout>

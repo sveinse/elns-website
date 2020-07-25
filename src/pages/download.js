@@ -2,10 +2,10 @@ import React from "react";
 import { Header, Button, Icon, Grid } from "semantic-ui-react";
 import filesize from "filesize";
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
-import { findLatest } from "../components/release";
-import releases from "../release.json";
+import Layout from "components/layout";
+import SEO from "components/seo";
+import { findLatest } from "components/release";
+import releases from "release.json";
 
 const Download = () => {
   const latest = findLatest(releases);

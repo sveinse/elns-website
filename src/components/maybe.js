@@ -1,5 +1,6 @@
 import React from "react";
-import { NavLink, Link } from "react-router-dom";
+
+import { NavLink, Link } from "components/router";
 
 export const MaybeLink = props => {
   return props.if ? <Link {...props}>{props.children}</Link> : props.children;

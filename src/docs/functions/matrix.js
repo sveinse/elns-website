@@ -1,10 +1,10 @@
 import React from "react";
 import { Header } from "semantic-ui-react";
 
-import DocsLayout from "../../components/docslayout";
-import SEO from "../../components/seo";
+import DocsLayout from "components/docslayout";
+import SEO from "components/seo";
 
-import ui_matrix from "../../images/func/matrix.png";
+import ui_matrix from "images/func/matrix.png";
 
 const MatrixPage = () => (
   <DocsLayout path="/docs/functions/matrix">

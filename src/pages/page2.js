@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
   Header,
   Image,
@@ -10,12 +9,13 @@ import {
   Grid,
 } from "semantic-ui-react";
 
-import { GR, GC } from "../components/shim";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import { Link } from "components/router";
+import { GR, GC } from "components/shim";
+import Layout from "components/layout";
+import SEO from "components/seo";
 
-import ui_matrix from "../images/func/matrix_8_c.png";
-import ui_panner from "../images/func/panner_move.gif";
+import ui_matrix from "images/func/matrix_8_c.png";
+import ui_panner from "images/func/panner_move.gif";
 
 const CaseHeader = ({ title, children }) => (
   <>

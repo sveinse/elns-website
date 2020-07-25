@@ -1,19 +1,19 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
 import { Header, Image, Grid, Icon, List, Segment } from "semantic-ui-react";
 
-import { Litem, GR, GC } from "../../components/shim";
-import DocsLayout from "../../components/docslayout";
-import SEO from "../../components/seo";
+import { Link } from "components/router";
+import { Litem, GR, GC } from "components/shim";
+import DocsLayout from "components/docslayout";
+import SEO from "components/seo";
 
-import ui_main from "../../images/ui/ui_main_all.png";
-import ui_main_passthrough from "../../images/ui/ui_main_passthrough.png";
-import ui_status_setup from "../../images/ui/ui_status_setup.png";
-import ui_status_error from "../../images/ui/ui_status_error.png";
-import ui_function_hover from "../../images/ui/ui_function_hover.png";
-import ui_info_hover from "../../images/ui/ui_info_hover.png";
-import ui_info_summary from "../../images/ui/ui_info_summary.png";
+import ui_main from "images/ui/ui_main_all.png";
+import ui_main_passthrough from "images/ui/ui_main_passthrough.png";
+import ui_status_setup from "images/ui/ui_status_setup.png";
+import ui_status_error from "images/ui/ui_status_error.png";
+import ui_function_hover from "images/ui/ui_function_hover.png";
+import ui_info_hover from "images/ui/ui_info_hover.png";
+import ui_info_summary from "images/ui/ui_info_summary.png";
 
 const DocRect = ({ x, y, w, h }) => (
   <rect

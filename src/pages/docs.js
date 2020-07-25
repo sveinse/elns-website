@@ -1,9 +1,9 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Header, Segment } from "semantic-ui-react";
 
-import DocsLayout, { DocsNavList } from "../components/docslayout";
-import SEO from "../components/seo";
+import { Link } from "components/router";
+import DocsLayout, { DocsNavList } from "components/docslayout";
+import SEO from "components/seo";
 
 const DocsPage = () => (
   <DocsLayout path="/docs">

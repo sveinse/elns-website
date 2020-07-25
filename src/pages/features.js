@@ -1,13 +1,13 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { Header, List } from "semantic-ui-react";
 
-import { LI } from "../components/shim";
-import { DocsNavList } from "../components/docslayout";
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import { Link } from "components/router";
+import { LI } from "components/shim";
+import { DocsNavList } from "components/docslayout";
+import Layout from "components/layout";
+import SEO from "components/seo";
 
-//import ui_main from "../images/ui/ui_main_all.png";
+//import ui_main from "images/ui/ui_main_all.png";
 
 const Features = () => (
   <>

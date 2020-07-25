@@ -1,10 +1,10 @@
 import React from "react";
 import { Header } from "semantic-ui-react";
 
-import DocsLayout from "../../components/docslayout";
-import SEO from "../../components/seo";
+import DocsLayout from "components/docslayout";
+import SEO from "components/seo";
 
-import ui_quantizer from "../../images/func/quantizer.png";
+import ui_quantizer from "images/func/quantizer.png";
 
 const QuantizerPage = () => (
   <DocsLayout path="/docs/functions/quantizer">

@@ -2,41 +2,41 @@
 //import "react-app-polyfill/stable";
 //import "semantic-ui-css/semantic.min.css"
 import "semantic-ui-css/semantic.css";
-import "./styles/global.css";
+import "styles/global.css";
 
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import * as serviceWorker from "./serviceWorker";
 
-import ScrollToTopWithRouter from "./components/scrolltotop";
+import ScrollToTopWithRouter from "components/scrolltotop";
 
-import IndexPage from "./pages/index";
-import Page2Page from "./pages/page2";
-import FeaturePage from "./pages/features";
-import DownloadPage from "./pages/download";
-import SupportPageOld from "./pages/support";
-import SponsorPage from "./pages/sponsor";
+import IndexPage from "pages/index";
+import Page2Page from "pages/page2";
+import FeaturePage from "pages/features";
+import DownloadPage from "pages/download";
+import SupportPageOld from "pages/support";
+import SponsorPage from "pages/sponsor";
 
-import StartPage from "./docs/start";
-import SupportPage from "./docs/support";
-import FaqPage from "./docs/faq";
+import StartPage from "docs/start";
+import SupportPage from "docs/support";
+import FaqPage from "docs/faq";
 
-import UIPage from "./docs/usage/ui";
-import SettingsPage from "./docs/usage/settings";
-import WindowsPage from "./docs/usage/windows";
-import UsagePage from "./docs/usage";
+import UIPage from "docs/usage/ui";
+import SettingsPage from "docs/usage/settings";
+import WindowsPage from "docs/usage/windows";
+import UsagePage from "docs/usage";
 
-import PassthroughPage from "./docs/functions/passthrough";
-import MatrixPage from "./docs/functions/matrix";
-import PannerPage from "./docs/functions/panner";
-import QuantizerPage from "./docs/functions/quantizer";
-import BiterrorPage from "./docs/functions/biterror";
-import FunctionsPage from "./docs/functions";
+import PassthroughPage from "docs/functions/passthrough";
+import MatrixPage from "docs/functions/matrix";
+import PannerPage from "docs/functions/panner";
+import QuantizerPage from "docs/functions/quantizer";
+import BiterrorPage from "docs/functions/biterror";
+import FunctionsPage from "docs/functions";
 
-import DocsPage from "./pages/docs";
-import TodoPage from "./pages/todo";
-import NotFoundPage from "./pages/404";
+import DocsPage from "pages/docs";
+import TodoPage from "pages/todo";
+import NotFoundPage from "pages/404";
 
 // prettier-ignore
 ReactDOM.render(

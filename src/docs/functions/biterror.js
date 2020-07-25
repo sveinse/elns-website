@@ -1,10 +1,10 @@
 import React from "react";
 import { Header } from "semantic-ui-react";
 
-import DocsLayout from "../../components/docslayout";
-import SEO from "../../components/seo";
+import DocsLayout from "components/docslayout";
+import SEO from "components/seo";
 
-import ui_biterror from "../../images/func/biterror.png";
+import ui_biterror from "images/func/biterror.png";
 
 const BiterrorPage = () => (
   <DocsLayout path="/docs/functions/biterror">

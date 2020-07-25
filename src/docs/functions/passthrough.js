@@ -1,10 +1,10 @@
 import React from "react";
 import { Header } from "semantic-ui-react";
 
-import DocsLayout from "../../components/docslayout";
-import SEO from "../../components/seo";
+import DocsLayout from "components/docslayout";
+import SEO from "components/seo";
 
-import ui_passthrough from "../../images/func/passthrough.png";
+import ui_passthrough from "images/func/passthrough.png";
 
 const PassthroughPage = () => (
   <DocsLayout path="/docs/functions/passthrough">

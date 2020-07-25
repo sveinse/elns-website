@@ -1,10 +1,10 @@
 import React from "react";
 import { Header } from "semantic-ui-react";
 
-import DocsLayout from "../../components/docslayout";
-import SEO from "../../components/seo";
+import DocsLayout from "components/docslayout";
+import SEO from "components/seo";
 
-import ui_panner from "../../images/func/panner.png";
+import ui_panner from "images/func/panner.png";
 
 const PannerPage = () => (
   <DocsLayout path="/docs/functions/panner">

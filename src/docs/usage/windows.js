@@ -1,18 +1,18 @@
 import React from "react";
 import { Header, Image, Segment, Grid } from "semantic-ui-react";
 
-import DocsLayout from "../../components/docslayout";
-import SEO from "../../components/seo";
+import DocsLayout from "components/docslayout";
+import SEO from "components/seo";
 
-import win_sound_settings from "../../images/win/win_sound_settings_mark.png";
-import win_playback_devices_configure from "../../images/win/win_playback_devices_configure.png";
-import win_playback_devices_properties from "../../images/win/win_playback_devices_properties.png";
-import win_speaker_w1 from "../../images/win/win_speaker_w1_mark.png";
-import win_speaker_w2 from "../../images/win/win_speaker_w2_mark.png";
-import win_speaker_w3 from "../../images/win/win_speaker_w3_mark.png";
-import win_speaker_w4 from "../../images/win/win_speaker_w4.png";
-import win_device_format from "../../images/win/win_device_format.png";
-import win_device_enhancements from "../../images/win/win_device_enhancements_mark.png";
+import win_sound_settings from "images/win/win_sound_settings_mark.png";
+import win_playback_devices_configure from "images/win/win_playback_devices_configure.png";
+import win_playback_devices_properties from "images/win/win_playback_devices_properties.png";
+import win_speaker_w1 from "images/win/win_speaker_w1_mark.png";
+import win_speaker_w2 from "images/win/win_speaker_w2_mark.png";
+import win_speaker_w3 from "images/win/win_speaker_w3_mark.png";
+import win_speaker_w4 from "images/win/win_speaker_w4.png";
+import win_device_format from "images/win/win_device_format.png";
+import win_device_enhancements from "images/win/win_device_enhancements_mark.png";
 
 const WindowsPage = () => (
   <DocsLayout path="/docs/usage/windows">

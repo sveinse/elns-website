@@ -1,8 +1,8 @@
 import React from "react";
 import { Header } from "semantic-ui-react";
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from "components/layout";
+import SEO from "components/seo";
 
 const NotFoundPage = () => (
   <Layout>

@@ -1,8 +1,8 @@
 import React from "react";
 import { Header, Divider } from "semantic-ui-react";
 
-import DocsLayout from "../components/docslayout";
-import SEO from "../components/seo";
+import DocsLayout from "components/docslayout";
+import SEO from "components/seo";
 
 const Faq = ({ title, children }) => (
   <div>

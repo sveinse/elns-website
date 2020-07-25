@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { NavLink, Link } from "react-router-dom";
 import {
   Menu,
   Container,
@@ -12,7 +11,8 @@ import {
   Icon,
 } from "semantic-ui-react";
 
-import { elns_menu } from "./nav";
+import { NavLink, Link } from "components/router";
+import { elns_menu } from "components/nav";
 
 const getWidth = () => {
   const isSSR = typeof window === "undefined";

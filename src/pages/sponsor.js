@@ -1,8 +1,8 @@
 import React from "react";
 import { Header, Icon, Image, Segment } from "semantic-ui-react";
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import Layout from "components/layout";
+import SEO from "components/seo";
 
 const SponsorPage = () => (
   <Layout>

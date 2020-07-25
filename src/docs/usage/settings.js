@@ -1,14 +1,14 @@
 import React from "react";
 import { Header, Image, Icon, List } from "semantic-ui-react";
 
-import { Litem } from "../../components/shim";
-import DocsLayout from "../../components/docslayout";
-import SEO from "../../components/seo";
+import { Litem } from "components/shim";
+import DocsLayout from "components/docslayout";
+import SEO from "components/seo";
 
-import ui_settings from "../../images/ui/ui_settings.png";
-import ui_updates from "../../images/ui/ui_updates.png";
-import ui_updates_beta from "../../images/ui/ui_updates_beta.png";
-import ui_diagnostics from "../../images/ui/ui_diagnostics.png";
+import ui_settings from "images/ui/ui_settings.png";
+import ui_updates from "images/ui/ui_updates.png";
+import ui_updates_beta from "images/ui/ui_updates_beta.png";
+import ui_diagnostics from "images/ui/ui_diagnostics.png";
 
 const SettingDialog = () => (
   <>

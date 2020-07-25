@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
 import {
   Segment,
   Grid,
@@ -10,8 +9,9 @@ import {
   Icon,
 } from "semantic-ui-react";
 
-import Layout from "../components/layout";
-import SEO from "../components/seo";
+import { Link } from "components/router";
+import Layout from "components/layout";
+import SEO from "components/seo";
 
 const Banner = ({ mobile }) => {
   return (
