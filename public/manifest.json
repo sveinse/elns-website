@@ -3,7 +3,6 @@
   "short_name": "ELNS",
   "description": "Interactive multi-channel audio test application",
   "icons":[
-    {"src":"icons/elns-icon.svg","sizes":"512x512","type":"image/svg+xml"},
     {"src":"icons/elns-icon-16.png","sizes":"16x16","type":"image/png"},
     {"src":"icons/elns-icon-24.png","sizes":"24x24","type":"image/png"},
     {"src":"icons/elns-icon-32.png","sizes":"32x32","type":"image/png"},
