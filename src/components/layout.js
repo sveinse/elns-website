@@ -11,7 +11,6 @@ import {
   Sidebar,
   Icon,
 } from "semantic-ui-react"
-import "semantic-ui-less/semantic.less"
 
 const getWidth = () => {
   const isSSR = typeof window === "undefined"
