@@ -75,7 +75,7 @@ ol.ui.list li,
 
 /* Front-page adjustments */
 .frontpage.ui.segment {
-  padding: 3em 0em;
+  padding: 2em 0em;
 }
 .frontpage.ui.segment h3 {
   font-size: 2em;
@@ -113,7 +113,7 @@ ol.ui.list li,
   flex-direction: row;
 }
 .sideflex main {
-  margin-top: 1em;
+  margin-top: 2em;
   flex-grow: 1;
 }
 .sideflex .ui.breadcrumb {

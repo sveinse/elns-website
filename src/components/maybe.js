@@ -1,15 +1,13 @@
 import React from "react";
+import PropTypes from "prop-types";
 
-import { NavLink, Link } from "components/router";
+import { Link } from "components/router";
 
-export const MaybeLink = props => {
-  return props.if ? <Link {...props}>{props.children}</Link> : props.children;
+export const MaybeLink = ({ cond, ...props }) => {
+  return cond ? <Link {...props}>{props.children}</Link> : props.children;
 };
 
-export const MaybeNavLink = props => {
-  return props.if ? (
-    <NavLink {...props}>{props.children}</NavLink>
-  ) : (
-    props.children
-  );
+MaybeLink.propTypes = {
+  cond: PropTypes.bool.isRequired,
 };
+

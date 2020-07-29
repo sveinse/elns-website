@@ -113,12 +113,10 @@ const UpdateDialog = () => (
       updates and present a link to the download.
     </p>
 
-    <p>
-      <Image.Group>
-        <Image src={ui_updates} />
-        <Image src={ui_updates_beta} />
-      </Image.Group>
-    </p>
+    <Image.Group>
+      <Image src={ui_updates} />
+      <Image src={ui_updates_beta} />
+    </Image.Group>
   </>
 );
 
@@ -134,23 +132,21 @@ const DiagnosticsDialog = () => (
       program crash or bugs.
     </p>
 
-    <p>
-      <Grid stackable reversed="computer tablet">
-        <GR>
-          <GC className="fit">
-            <svg viewBox="315 220 316 138" style={{ width: 316, height: 138 }}>
-              <image href={ui_status_setup} />
-            </svg>
-          </GC>
-          <GC className="grow">
-            By clicking the status icon in the bottom right corner, the current
-            program status will be shown in a pop-up dialog. In this dialog
-            there is a <strong>Send diagnostics</strong> button which can be
-            used to send upload ELNS diagnostics.
-          </GC>
-        </GR>
-      </Grid>
-    </p>
+    <Grid stackable reversed="computer tablet">
+      <GR>
+        <GC className="fit">
+          <svg viewBox="315 220 316 138" style={{ width: 316, height: 138 }}>
+            <image href={ui_status_setup} />
+          </svg>
+        </GC>
+        <GC className="grow">
+          By clicking the status icon in the bottom right corner, the current
+          program status will be shown in a pop-up dialog. In this dialog there
+          is a <strong>Send diagnostics</strong> button which can be used to
+          send upload ELNS diagnostics.
+        </GC>
+      </GR>
+    </Grid>
 
     <p>
       The <strong>Upload ELNS diagnostics</strong> dialog has two fields:{" "}

@@ -78,12 +78,12 @@ const DocsListItems = props => {
         const to = path + (e.path && "/" + e.path);
         return (
           <List.Item key={to}>
-            {noicons ?? (
+            {!noicons && (
               <List.Icon name={e.children ? "angle down" : "angle right"} />
             )}
             <List.Content>
               <List.Header>
-                <MaybeLink if={e.link} to={to} exact>
+                <MaybeLink cond={e.link} to={to}>
                   {e.title ?? e.menu}
                 </MaybeLink>
               </List.Header>
@@ -104,6 +104,13 @@ const DocsListItems = props => {
       })}
     </>
   );
+};
+
+DocsListItems.propTypes = {
+  path: PropTypes.string,
+  level: PropTypes.number,
+  tree: PropTypes.array,
+  noicons: PropTypes.bool,
 };
 
 DocsListItems.defaultProps = {
@@ -147,7 +154,7 @@ export const DocsNav = ({ path, ...props }) => (
       });
       return (
         <li className={cls} key={e.to}>
-          <Link to={e.to} exact>
+          <Link to={e.to}>
             {e.menu} {e.children && <Icon name="angle down" />}
           </Link>
         </li>

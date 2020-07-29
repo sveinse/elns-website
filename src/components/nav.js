@@ -2,7 +2,7 @@ import React from "react";
 import { Icon } from "semantic-ui-react";
 
 export const elns_menu = [
-  { to: "/", content: "ELNS", exact: true },
+  { to: "/", content: "ELNS" },
   { to: "/page2", content: "Use cases" },
   { to: "/features", content: "Features" },
   { to: "/docs", content: "Documentation" },

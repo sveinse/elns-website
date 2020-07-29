@@ -9,7 +9,7 @@ import {
   Icon,
 } from "semantic-ui-react";
 
-import { NavLink, Link } from "components/router";
+import { Link } from "components/router";
 import { elns_menu } from "components/nav";
 import { DocsNav, DocsCrumbs } from "components/docsnav";
 
@@ -20,10 +20,9 @@ const ElnsMenu = ({ download, className }) => (
       return (
         <Menu.Item
           key={e.to}
-          as={NavLink}
+          as={Link}
           activeClassName="active"
           to={e.to}
-          exact={e.exact}
           className={className}
         >
           {e.content}
