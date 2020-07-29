@@ -9,7 +9,7 @@ import ui_settings from "images/ui/ui_settings.png";
 import ui_updates from "images/ui/ui_updates.png";
 import ui_updates_beta from "images/ui/ui_updates_beta.png";
 import ui_diagnostics from "images/ui/ui_diagnostics.png";
-import ui_status_error from "images/ui/ui_status_error.png";
+//import ui_status_error from "images/ui/ui_status_error.png";
 import ui_status_setup from "images/ui/ui_status_setup_dialog.png";
 
 const SettingDialog = () => (

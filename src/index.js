@@ -18,21 +18,21 @@ import DownloadPage from "pages/download";
 import SupportPageOld from "pages/support";
 import SponsorPage from "pages/sponsor";
 
-import StartPage from "docs/start";
-import SupportPage from "docs/support";
-import FaqPage from "docs/faq";
+import StartPage from "pages/docs/start";
+import SupportPage from "pages/docs/support";
+import FaqPage from "pages/docs/faq";
 
-import UIPage from "docs/usage/ui";
-import SettingsPage from "docs/usage/settings";
-import WindowsPage from "docs/usage/windows";
-import UsagePage from "docs/usage";
+import UIPage from "pages/docs/usage/ui";
+import SettingsPage from "pages/docs/usage/settings";
+import WindowsPage from "pages/docs/usage/windows";
+import UsagePage from "pages/docs/usage";
 
-import PassthroughPage from "docs/functions/passthrough";
-import MatrixPage from "docs/functions/matrix";
-import PannerPage from "docs/functions/panner";
-import QuantizerPage from "docs/functions/quantizer";
-import BiterrorPage from "docs/functions/biterror";
-import FunctionsPage from "docs/functions";
+import PassthroughPage from "pages/docs/functions/passthrough";
+import MatrixPage from "pages/docs/functions/matrix";
+import PannerPage from "pages/docs/functions/panner";
+import QuantizerPage from "pages/docs/functions/quantizer";
+import BiterrorPage from "pages/docs/functions/biterror";
+import FunctionsPage from "pages/docs/functions";
 
 import DocsPage from "pages/docs";
 import TodoPage from "pages/todo";
