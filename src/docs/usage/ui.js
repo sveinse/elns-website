@@ -1,10 +1,9 @@
 import React from "react";
-import { HashLink } from "react-router-hash-link";
 import { Header, Image, Grid, Icon, List, Segment } from "semantic-ui-react";
 
 import { Link } from "components/router";
 import { Litem, GR, GC } from "components/shim";
-import DocsLayout from "components/docslayout";
+import Layout from "components/layout";
 import SEO from "components/seo";
 
 import ui_main from "images/ui/ui_main_all.png";
@@ -246,12 +245,12 @@ const StatusBar = () => (
         <strong>Samplerate / Encoding / Latency</strong>. Hovering over the
         field will show additional technical information about the processing.
         See{" "}
-        <HashLink
-          to="#info"
+        <Link
+          to={{ pathname: "/docs/usage/ui", hash: "#info" }}
           scroll={el => el.scrollIntoView({ behavior: "smooth" })}
         >
           program info
-        </HashLink>{" "}
+        </Link>{" "}
         section for more information.
       </Litem>
 
@@ -266,12 +265,12 @@ const StatusBar = () => (
               <strong>Clear</strong> (only errors) will dismiss and clear the
               current error. <strong>Send diagnostics</strong> allows sending
               diagnostics information to the author. See{" "}
-              <HashLink
-                to="/docs/usage/settings#info"
+              <Link
+                to={{ pathname: "/docs/usage/settings", hash: "#diagnostics" }}
                 scroll={el => el.scrollIntoView({ behavior: "smooth" })}
               >
                 diagnostics dialog
-              </HashLink>{" "}
+              </Link>{" "}
               documentation for more information.
             </GC>
             <GC className="fit">
@@ -442,7 +441,7 @@ const Info = () => (
 );
 
 const UIPage = () => (
-  <DocsLayout path="/docs/usage/ui">
+  <Layout docs="/docs/usage/ui">
     <SEO title="Docs" />
 
     <Header as="h1">User interface</Header>
@@ -462,7 +461,7 @@ const UIPage = () => (
     <StatusBar />
     <Statuses />
     <Info />
-  </DocsLayout>
+  </Layout>
 );
 
 export default UIPage;

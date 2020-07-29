@@ -2,7 +2,7 @@ import React from "react";
 import { Header, Image, Icon, Button, Grid, Segment } from "semantic-ui-react";
 
 import { Link } from "components/router";
-import DocsLayout from "components/docslayout";
+import Layout from "components/layout";
 import SEO from "components/seo";
 import { GR, GC } from "components/shim";
 
@@ -12,7 +12,7 @@ import ui_matrix from "images/func/matrix.png";
 import ui_select_sounddevice from "images/ui/ui_select_sounddevice.png";
 
 const StartPage = () => (
-  <DocsLayout path="/docs/start">
+  <Layout docs="/docs/start">
     <SEO title="Docs" />
 
     <Header as="h1">Getting started</Header>
@@ -153,7 +153,7 @@ const StartPage = () => (
       <Icon name="info" size="big" />
       Go to the <Link to="/docs">documentation</Link>
     </Segment>
-  </DocsLayout>
+  </Layout>
 );
 
 export default StartPage;

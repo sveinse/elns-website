@@ -1,11 +1,12 @@
 import React from "react";
 import { Header, Segment } from "semantic-ui-react";
 
-import DocsLayout, { DocsNavList } from "components/docslayout";
+import Layout from "components/layout";
+import { DocsList } from "components/docsnav";
 import SEO from "components/seo";
 
 const UsagePage = () => (
-  <DocsLayout path="/docs/usage">
+  <Layout docs="/docs/usage">
     <SEO title="Docs" />
 
     <Header as="h1">Usage and setup</Header>
@@ -17,9 +18,9 @@ const UsagePage = () => (
 
     <Segment>
       <Header as="h3">Page navigation</Header>
-      <DocsNavList path="/docs/usage" noicons />
+      <DocsList path="/docs/usage" noicons />
     </Segment>
-  </DocsLayout>
+  </Layout>
 );
 
 export default UsagePage;

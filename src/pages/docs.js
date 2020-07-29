@@ -2,11 +2,12 @@ import React from "react";
 import { Header, Segment } from "semantic-ui-react";
 
 import { Link } from "components/router";
-import DocsLayout, { DocsNavList } from "components/docslayout";
+import Layout from "components/layout";
+import { DocsList } from "components/docsnav";
 import SEO from "components/seo";
 
 const DocsPage = () => (
-  <DocsLayout path="/docs">
+  <Layout docs="/docs">
     <SEO title="Docs" />
 
     <Header as="h1">Welcome to ELNS Documentation</Header>
@@ -21,9 +22,9 @@ const DocsPage = () => (
 
     <Segment>
       <Header as="h3">Page navigation</Header>
-      <DocsNavList path="/docs" />
+      <DocsList path="/docs" />
     </Segment>
-  </DocsLayout>
+  </Layout>
 );
 
 export default DocsPage;

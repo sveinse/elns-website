@@ -1,7 +1,7 @@
 import React from "react";
 import { Header, Image, Segment, Grid } from "semantic-ui-react";
 
-import DocsLayout from "components/docslayout";
+import Layout from "components/layout";
 import SEO from "components/seo";
 
 import win_sound_settings from "images/win/win_sound_settings_mark.png";
@@ -15,7 +15,7 @@ import win_device_format from "images/win/win_device_format.png";
 import win_device_enhancements from "images/win/win_device_enhancements_mark.png";
 
 const WindowsPage = () => (
-  <DocsLayout path="/docs/usage/windows">
+  <Layout docs="/docs/usage/windows">
     <SEO title="Docs" />
 
     <Header as="h1">Windows setup</Header>
@@ -119,7 +119,7 @@ const WindowsPage = () => (
     <p>
       <Image src={win_device_enhancements} style={{ width: 371 }} />
     </p>
-  </DocsLayout>
+  </Layout>
 );
 
 export default WindowsPage;

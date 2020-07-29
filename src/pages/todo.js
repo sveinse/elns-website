@@ -17,7 +17,7 @@ const TodoPage = () => (
       <LI>Fix repeat icon in docs</LI>
       <LI>Add release date to release.json</LI>
       <LI>Fix navigation</LI>
-      <LI>Write the settings page</LI>
+      <LI>License page</LI>
     </List>
   </Layout>
 );

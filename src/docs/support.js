@@ -1,11 +1,11 @@
 import React from "react";
 import { Header, Button, Icon } from "semantic-ui-react";
 
-import DocsLayout from "components/docslayout";
+import Layout from "components/layout";
 import SEO from "components/seo";
 
 const SupportPage = () => (
-  <DocsLayout path="/docs/support">
+  <Layout docs="/docs/support">
     <SEO title="Support" />
 
     <Header as="h1">Support</Header>
@@ -19,7 +19,7 @@ const SupportPage = () => (
       To GitHub
       <Icon name="arrow right" />
     </Button>
-  </DocsLayout>
+  </Layout>
 );
 
 export default SupportPage;

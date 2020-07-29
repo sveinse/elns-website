@@ -13,6 +13,7 @@ import {
 
 import { NavLink, Link } from "components/router";
 import { elns_menu } from "components/nav";
+import { DocsNav, DocsCrumbs } from "components/docsnav";
 
 const getWidth = () => {
   const isSSR = typeof window === "undefined";
@@ -177,11 +178,20 @@ const Footer = () => (
   </footer>
 );
 
-const Layout = ({ banner, nav, notext, children }) => {
-  const page = <Container text={!notext}>{children}</Container>;
+const Layout = ({ banner, notext, docs, children }) => {
+  const page = (
+    <Container text={!notext}>
+      {docs && <DocsCrumbs path={docs} />}
+      {children}
+    </Container>
+  );
   return (
     <div className="site flexparent">
-      <DesktopContainer banner={banner} nav={nav} className="flex flexparent">
+      <DesktopContainer
+        banner={banner}
+        nav={docs && <DocsNav path={docs} className="docsnav" />}
+        className="flex flexparent"
+      >
         {page}
       </DesktopContainer>
       <MobileContainer banner={banner} className="flex">

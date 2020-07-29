@@ -1,13 +1,13 @@
 import React from "react";
 import { Header } from "semantic-ui-react";
 
-import DocsLayout from "components/docslayout";
+import Layout from "components/layout";
 import SEO from "components/seo";
 
 import ui_matrix from "images/func/matrix.png";
 
 const MatrixPage = () => (
-  <DocsLayout path="/docs/functions/matrix">
+  <Layout docs="/docs/functions/matrix">
     <SEO title="Docs" />
 
     <Header as="h1">Matrix mixer function</Header>
@@ -19,15 +19,25 @@ const MatrixPage = () => (
     </p>
 
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
+      The <strong>matrix mixer</strong> supports mapping and mixing of any input
+      channels to any output channel. The typical use case is a mono or stero
+      input mapped to a 8-channel (7.1) output, enabling sending the input audio
+      any channel.
     </p>
-  </DocsLayout>
+
+    <p>
+      The <strong>input channels</strong> are represented as rows in the
+      function window. The <strong>output channels</strong> are represented as
+      columns. A input and output is <em>connected</em> by clicking the box
+      corresponding to the input and output. The <strong>number</strong>{" "}
+      corresponds to the <strong>attenuation</strong> of that connection.
+    </p>
+
+    <p>
+      For stereo input <em>left</em> is channel 1, while <em>right</em> is
+      channel 2.
+    </p>
+  </Layout>
 );
 
 export default MatrixPage;

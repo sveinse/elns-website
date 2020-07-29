@@ -1,13 +1,13 @@
 import React from "react";
 import { Header } from "semantic-ui-react";
 
-import DocsLayout from "components/docslayout";
+import Layout from "components/layout";
 import SEO from "components/seo";
 
 import ui_quantizer from "images/func/quantizer.png";
 
 const QuantizerPage = () => (
-  <DocsLayout path="/docs/functions/quantizer">
+  <Layout docs="/docs/functions/quantizer">
     <SEO title="Docs" />
 
     <Header as="h1">Quantizer function</Header>
@@ -27,7 +27,7 @@ const QuantizerPage = () => (
       cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
       est laborum.
     </p>
-  </DocsLayout>
+  </Layout>
 );
 
 export default QuantizerPage;

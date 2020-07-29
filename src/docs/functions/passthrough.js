@@ -1,13 +1,13 @@
 import React from "react";
 import { Header } from "semantic-ui-react";
 
-import DocsLayout from "components/docslayout";
+import Layout from "components/layout";
 import SEO from "components/seo";
 
 import ui_passthrough from "images/func/passthrough.png";
 
 const PassthroughPage = () => (
-  <DocsLayout path="/docs/functions/passthrough">
+  <Layout docs="/docs/functions/passthrough">
     <SEO title="Docs" />
 
     <Header as="h1">Passthrough function</Header>
@@ -19,15 +19,12 @@ const PassthroughPage = () => (
     </p>
 
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
+      <strong>Passthrough</strong> accepts a number of input channels and sends
+      the audio out on an equal amount of output channels without any
+      processing. It is great to use for playback or recording, or for testing
+      that the audio card IO is working properly.
     </p>
-  </DocsLayout>
+  </Layout>
 );
 
 export default PassthroughPage;

@@ -3,7 +3,7 @@ import { Header, List } from "semantic-ui-react";
 
 import { Link } from "components/router";
 import { LI } from "components/shim";
-import { DocsNavList } from "components/docslayout";
+import { DocsList } from "components/docsnav";
 import Layout from "components/layout";
 import SEO from "components/seo";
 
@@ -35,7 +35,7 @@ const Functions = () => (
       separate featureset and functionality of audio processing.
     </p>
 
-    <DocsNavList path="/docs/functions" noicons />
+    <DocsList path="/docs/functions" noicons />
   </>
 );
 

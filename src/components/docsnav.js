@@ -6,7 +6,6 @@ import classNames from "classnames";
 import { Link } from "components/router";
 import { MaybeLink } from "components/maybe";
 import { elns_docs } from "components/nav";
-import Layout from "components/layout";
 
 const getCrumbs = (tree, path) => {
   let crumbs = [];
@@ -70,7 +69,7 @@ const getNavItems = (tree, level = 0, base = "") => {
   }).flat();
 };
 
-const DocsNavListItems = props => {
+const DocsListItems = props => {
   const { path, level, tree, noicons } = props;
   if (tree === undefined) return null;
   return (
@@ -91,7 +90,7 @@ const DocsNavListItems = props => {
               {e.description}
               {e.children && (
                 <List.List>
-                  <DocsNavListItems
+                  <DocsListItems
                     {...props}
                     path={to}
                     level={level + 1}
@@ -107,27 +106,40 @@ const DocsNavListItems = props => {
   );
 };
 
-DocsNavListItems.defaultProps = {
+DocsListItems.defaultProps = {
   path: "",
   level: 0,
 };
 
-export const DocsNavList = props => (
+export const DocsList = props => (
   <List bulleted={props.noicons}>
-    <DocsNavListItems {...props} tree={getTree(elns_docs, props.path)} />
+    <DocsListItems {...props} tree={getTree(elns_docs, props.path)} />
   </List>
 );
 
-DocsNavList.propTypes = {
+DocsList.propTypes = {
   path: PropTypes.string.isRequired,
 };
 
-DocsNavList.defaultProps = {
+DocsList.defaultProps = {
   path: "/docs",
 };
 
-const DocsNavMenu = ({ path }) => (
-  <ul className="docsnav">
+export const DocsCrumbs = ({ path }) => (
+  <Breadcrumb
+    icon="right angle"
+    size="large"
+    sections={getCrumbs(elns_docs, path)}
+    style={{ marginTop: "1em" }}
+  />
+);
+
+DocsCrumbs.propTypes = {
+  path: PropTypes.string,
+};
+
+export const DocsNav = ({ path, className }) => (
+  <ul className={className}>
     {getNavItems(elns_docs).map(e => {
       const cls = classNames({
         ["level" + e.level]: true,
@@ -144,26 +156,9 @@ const DocsNavMenu = ({ path }) => (
   </ul>
 );
 
-DocsNavMenu.propTypes = {
+DocsNav.propTypes = {
   path: PropTypes.string,
   tree: PropTypes.array,
 };
 
-const DocsLayout = ({ children, path }) => (
-  <Layout nav={<DocsNavMenu path={path} />}>
-    <Breadcrumb
-      icon="right angle"
-      size="large"
-      sections={getCrumbs(elns_docs, path)}
-      style={{ marginTop: "1em" }}
-    />
-    {children}
-  </Layout>
-);
-
-DocsLayout.propTypes = {
-  children: PropTypes.node.isRequired,
-  path: PropTypes.string.isRequired,
-};
-
-export default DocsLayout;
+export default DocsNav;

@@ -2,6 +2,7 @@
   {
     "version": "1.0",
     "train": "prod",
+    "date": "2019-12-23",
     "page": "https://github.com/sveinse/elns-release/releases/tag/v1.0",
     "files": [
       {
@@ -23,6 +24,7 @@
   {
     "version": "1.1-b3",
     "train": "beta",
+    "date": "2020-06-01",
     "page": "https://github.com/sveinse/elns-release/releases/tag/v1.1-b3",
     "files": [
       {
