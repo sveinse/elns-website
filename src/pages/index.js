@@ -17,13 +17,7 @@ const Banner = ({ mobile }) => {
   return (
     <Segment inverted vertical className="banner image">
       <Container textAlign="center">
-        <Header
-          as="h1"
-          inverted
-          style={{
-            fontSize: mobile ? "50px" : "80px",
-          }}
-        >
+        <Header as="h1" inverted>
           ELNS
         </Header>
         <Header as="h2" inverted>

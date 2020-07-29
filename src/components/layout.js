@@ -4,8 +4,6 @@ import {
   Menu,
   Container,
   Segment,
-  Responsive,
-  Visibility,
   Button,
   Sidebar,
   Icon,
@@ -15,12 +13,7 @@ import { NavLink, Link } from "components/router";
 import { elns_menu } from "components/nav";
 import { DocsNav, DocsCrumbs } from "components/docsnav";
 
-const getWidth = () => {
-  const isSSR = typeof window === "undefined";
-  return isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth;
-};
-
-const ElnsMenu = ({ download }) => (
+const ElnsMenu = ({ download, className }) => (
   <>
     {elns_menu.map(e => {
       if (e.to === "/download" && !download) return null;
@@ -31,6 +24,7 @@ const ElnsMenu = ({ download }) => (
           activeClassName="active"
           to={e.to}
           exact={e.exact}
+          className={className}
         >
           {e.content}
         </Menu.Item>
@@ -39,171 +33,93 @@ const ElnsMenu = ({ download }) => (
   </>
 );
 
-const ElnsMenuButtons = ({ inverted }) => (
-  <>
-    <Button
-      inverted={inverted}
-      as={Link}
-      to="/download"
-      style={{ marginLeft: "0.5em" }}
-    >
-      Download
-    </Button>
-  </>
+const Footer = () => (
+  <Segment inverted vertical>
+    <Container as="footer">
+      ELNS (C) 2020 Svein Seldal{" "}
+      <Button as={Link} to="/todo" inverted>
+        Todo
+      </Button>
+    </Container>
+  </Segment>
 );
 
-class DesktopContainer extends React.Component {
-  state = {};
-
-  hideFixedMenu = () => this.setState({ fixed: false });
-  showFixedMenu = () => this.setState({ fixed: true });
-
-  render() {
-    const { banner, children, nav, className } = this.props;
-    const { fixed } = this.state;
-
-    return (
-      <Responsive
-        getWidth={getWidth}
-        minWidth={Responsive.onlyTablet.minWidth}
-        className={className}
-      >
-        <Visibility
-          once={false}
-          onBottomPassed={this.showFixedMenu}
-          onBottomPassedReverse={this.hideFixedMenu}
-        >
-          <Segment inverted textAlign="center" vertical>
-            <Menu
-              fixed={fixed ? "top" : null}
-              inverted={!fixed}
-              pointing={!fixed}
-              secondary={!fixed}
-              size="huge"
-            >
-              <Container>
-                <ElnsMenu />
-                <Menu.Item position="right">
-                  <ElnsMenuButtons inverted={!fixed} />
-                </Menu.Item>
-              </Container>
-            </Menu>
-          </Segment>
-          {banner ? React.cloneElement(banner, { mobile: false }) : ""}
-        </Visibility>
-        <div className="wrapper flex">
-          <main className="main">{children}</main>
-          {!banner && (
-            <Responsive
-              minWidth={Responsive.onlyTablet.maxWidth}
-              className={nav ? "nav show" : "nav noshow"}
-            >
-              {nav}
-            </Responsive>
-          )}
-        </div>
-      </Responsive>
-    );
-  }
-}
-
-DesktopContainer.propTypes = {
-  children: PropTypes.node,
-};
-
-class MobileContainer extends React.Component {
+class Layout extends React.Component {
   state = {};
 
   handleSidebarHide = () => this.setState({ sidebarOpened: false });
   handleToggle = () => this.setState({ sidebarOpened: true });
 
   render() {
-    const { banner, children, className } = this.props;
+    const { banner, docs, notext, children } = this.props;
     const { sidebarOpened } = this.state;
 
     return (
-      <Responsive
-        as={Sidebar.Pushable}
-        getWidth={getWidth}
-        maxWidth={Responsive.onlyMobile.maxWidth}
-        className={className}
-      >
-        <Sidebar
-          as={Menu}
-          animation="push"
-          inverted
-          onHide={this.handleSidebarHide}
-          vertical
-          visible={sidebarOpened}
-          width="thin"
-        >
-          <ElnsMenu download />
-        </Sidebar>
+      <div className="site flexparent">
+        <Sidebar.Pushable as={Segment} className="flex flexparent">
+          <Sidebar
+            as={Menu}
+            animation="push"
+            onHide={this.handleSidebarHide}
+            visible={sidebarOpened}
+            inverted
+            vertical
+            width="thin"
+            size="large"
+          >
+            <ElnsMenu download />
+          </Sidebar>
 
-        <Sidebar.Pusher as="main" dimmed={sidebarOpened}>
-          <Segment inverted textAlign="center" vertical>
-            <Container>
-              <Menu inverted pointing secondary size="large">
-                <Menu.Item onClick={this.handleToggle}>
-                  <Icon name="sidebar" size="large" />
-                </Menu.Item>
-                <Menu.Item position="right">
-                  <ElnsMenuButtons inverted />
-                </Menu.Item>
-              </Menu>
-            </Container>
-          </Segment>
-          {banner ? React.cloneElement(banner, { mobile: true }) : ""}
-          {children}
-        </Sidebar.Pusher>
-      </Responsive>
+          <Sidebar.Pusher dimmed={sidebarOpened} className="flex flexparent">
+            <Segment inverted textAlign="center" vertical>
+              <Container>
+                <Menu
+                  as="nav"
+                  inverted
+                  pointing
+                  secondary
+                  size="huge"
+                  className="topnav"
+                >
+                  <Menu.Item onClick={this.handleToggle} className="mobile">
+                    <Icon name="sidebar" size="large" />
+                  </Menu.Item>
+                  <ElnsMenu className="desktop" />
+                  <Menu.Item position="right">
+                    <Button inverted as={Link} to="/download">
+                      Download
+                    </Button>
+                  </Menu.Item>
+                </Menu>
+              </Container>
+            </Segment>
+
+            {banner}
+            <div className="sideflex flex">
+              <Container text={!notext}>
+                {docs && <DocsCrumbs path={docs} />}
+                <main>{children}</main>
+              </Container>
+
+              {!banner && (
+                <nav className="flexparent">
+                  {docs && <DocsNav path={docs} className="flex docsnav" />}
+                </nav>
+              )}
+            </div>
+          </Sidebar.Pusher>
+        </Sidebar.Pushable>
+        <Footer />
+      </div>
     );
   }
 }
 
-MobileContainer.propTypes = {
-  children: PropTypes.node,
-};
-
-const Footer = () => (
-  <footer>
-    <Segment inverted vertical>
-      <Container>
-        ELNS (C) 2020 Svein Seldal{" "}
-        <Button as={Link} to="/todo" inverted>
-          Todo
-        </Button>
-      </Container>
-    </Segment>
-  </footer>
-);
-
-const Layout = ({ banner, notext, docs, children }) => {
-  const page = (
-    <Container text={!notext}>
-      {docs && <DocsCrumbs path={docs} />}
-      {children}
-    </Container>
-  );
-  return (
-    <div className="site flexparent">
-      <DesktopContainer
-        banner={banner}
-        nav={docs && <DocsNav path={docs} className="docsnav" />}
-        className="flex flexparent"
-      >
-        {page}
-      </DesktopContainer>
-      <MobileContainer banner={banner} className="flex">
-        {page}
-      </MobileContainer>
-      <Footer />
-    </div>
-  );
-};
-
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  banner: PropTypes.node,
+  notext: PropTypes.bool,
+  docs: PropTypes.string,
 };
 
 export default Layout;

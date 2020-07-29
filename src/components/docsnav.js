@@ -125,12 +125,12 @@ DocsList.defaultProps = {
   path: "/docs",
 };
 
-export const DocsCrumbs = ({ path }) => (
+export const DocsCrumbs = ({ path, ...props }) => (
   <Breadcrumb
     icon="right angle"
     size="large"
     sections={getCrumbs(elns_docs, path)}
-    style={{ marginTop: "1em" }}
+    {...props}
   />
 );
 
@@ -138,8 +138,8 @@ DocsCrumbs.propTypes = {
   path: PropTypes.string,
 };
 
-export const DocsNav = ({ path, className }) => (
-  <ul className={className}>
+export const DocsNav = ({ path, ...props }) => (
+  <ul {...props}>
     {getNavItems(elns_docs).map(e => {
       const cls = classNames({
         ["level" + e.level]: true,
@@ -158,7 +158,6 @@ export const DocsNav = ({ path, className }) => (
 
 DocsNav.propTypes = {
   path: PropTypes.string,
-  tree: PropTypes.array,
 };
 
 export default DocsNav;
