@@ -244,14 +244,8 @@ const StatusBar = () => (
         The info field will show info about the audio processing:{" "}
         <strong>Samplerate / Encoding / Latency</strong>. Hovering over the
         field will show additional technical information about the processing.
-        See{" "}
-        <Link
-          to={{ pathname: "/docs/usage/ui", hash: "#info" }}
-          scroll={el => el.scrollIntoView({ behavior: "smooth" })}
-        >
-          program info
-        </Link>{" "}
-        section for more information.
+        See <Link to="/docs/usage/ui#info">program info</Link> section for more
+        information.
       </Litem>
 
       <Litem header="Status icon">
@@ -265,10 +259,7 @@ const StatusBar = () => (
               <strong>Clear</strong> (only errors) will dismiss and clear the
               current error. <strong>Send diagnostics</strong> allows sending
               diagnostics information to the author. See{" "}
-              <Link
-                to={{ pathname: "/docs/usage/settings", hash: "#diagnostics" }}
-                scroll={el => el.scrollIntoView({ behavior: "smooth" })}
-              >
+              <Link to="/docs/usage/settings#diagnostics">
                 diagnostics dialog
               </Link>{" "}
               documentation for more information.

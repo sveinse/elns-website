@@ -1,1 +1,1 @@
-export { Link, NavLink } from "react-router-dom";
+export { NavLink as Link } from "react-router-dom";
