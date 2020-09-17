@@ -20,9 +20,13 @@ const PassthroughPage = () => (
 
     <p>
       <strong>Passthrough</strong> accepts a number of input channels and sends
-      the audio out on an equal amount of output channels without any
-      processing. It is great to use for playback or recording, or for testing
-      that the audio card IO is working properly.
+      out the same number of audio channels without any processing. It is great
+      to use for playback or recording and for testing that the audio card IO is
+      working properly.
+    </p>
+
+    <p>
+      The preset settings A-D and the Bypass button has no effect on the audio.
     </p>
   </Layout>
 );

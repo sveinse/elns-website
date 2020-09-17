@@ -47,9 +47,10 @@ export const elns_docs = [
       { path: "settings", menu: "Settings", link: true,
         description: "Settings and dialog screens",
       },
-      { path: "windows", menu: "Windows setup", link: true,
+      { path: "windows", menu: "Windows audio", link: true,
         description: `
-  This page explains how to setup Windows with multi-channel audio`,
+  This page explains the available sound systems in Windows and how to setup
+  HDMI with multi-channel audio`,
       },
     ]},
 

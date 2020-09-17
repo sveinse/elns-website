@@ -36,12 +36,7 @@ const ElnsMenu = ({ download, className }) => (
 
 const Footer = () => (
   <Segment inverted vertical>
-    <Container as="footer">
-      ELNS (C) 2020 Svein Seldal{" "}
-      <Button as={Link} to="/todo" inverted>
-        Todo
-      </Button>
-    </Container>
+    <Container as="footer">ELNS (C) 2020 Svein Seldal </Container>
   </Segment>
 );
 

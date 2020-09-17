@@ -99,7 +99,9 @@ const InputsAndOutputs = () => (
         empty and it will be used as an output destination if the output file is
         empty. The suffix "<em>(in=X, out=Y)</em>" indicates the maximum number
         of input channels and output channels that this sound card supports. The
-        prefix in "<em>[brackets]</em>" indicates the audio system.
+        prefix in "<em>[brackets]</em>" indicates the audio system.{" "}
+        <Link to="/docs/usage/windows#system">Windows sound systems</Link>{" "}
+        provides information about the choices.
       </Litem>
 
       <Litem header="Input">
@@ -218,7 +220,9 @@ const AudioControls = () => (
 
 const StatusBar = () => (
   <>
-    <Header as="h2">Status bar</Header>
+    <Header as="h2" id="status">
+      Status bar
+    </Header>
 
     <svg viewBox="0 315 631 70">
       <image href={ui_main} />
