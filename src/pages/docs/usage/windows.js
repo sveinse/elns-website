@@ -4,7 +4,7 @@ import { Header, Image, Segment, Grid, List, Table } from "semantic-ui-react";
 import { Link } from "components/router";
 import Layout from "components/layout";
 import SEO from "components/seo";
-import { LI, Litem } from "components/shim";
+import { Litem } from "components/shim";
 
 import win_sound_settings from "images/win/win_sound_settings_mark.png";
 import win_playback_devices_configure from "images/win/win_playback_devices_configure.png";

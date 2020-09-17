@@ -1,5 +1,5 @@
 import React from "react";
-import { Header, Segment, Icon, Message } from "semantic-ui-react";
+import { Header, Icon, Message } from "semantic-ui-react";
 
 import { Link } from "components/router";
 import Layout from "components/layout";
