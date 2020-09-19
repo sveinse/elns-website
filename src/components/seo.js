@@ -12,6 +12,7 @@ function SEO({ description, lang, meta, title }) {
             title
             description
             author
+            siteUrl
           }
         }
       }
@@ -46,7 +47,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           property: `og:image`,
-          content: `${process.env.GATSBY_API_URL}/banner.jpg`,
+          content: `${site.siteMetadata.siteUrl}/banner.jpg`,
         },
         {
           property: `og:image:type`,

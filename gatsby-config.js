@@ -1,8 +1,11 @@
+const { DEPLOY_PRIME_URL } = process.env;
+
 module.exports = {
   siteMetadata: {
     title: `ELNS Audio Tool`,
     description: `Interactive multi-channel audio test application`,
     author: `@sveinse`,
+    siteUrl: DEPLOY_PRIME_URL,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
