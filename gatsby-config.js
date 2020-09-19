@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: `ELNS`,
-    description: `Website for the ELNS application.`,
+    title: `ELNS Audio Tool`,
+    description: `Interactive multi-channel audio test application`,
     author: `@sveinse`,
   },
   plugins: [

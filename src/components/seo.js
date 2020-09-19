@@ -1,58 +1,69 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Helmet } from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 
 function SEO({ description, lang, meta, title }) {
-  const site = {
-    siteMetadata: {
-      title: `ELNS`,
-      //description: `Interactive multi-channel audio test application`,
-      //author: `@sveinse`,
-    },
-  };
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+            author
+          }
+        }
+      }
+    `
+  );
 
-  //const metaDescription = description || site.siteMetadata.description;
+  const metaDescription = description || site.siteMetadata.description;
 
   return (
     <Helmet
-      /*htmlAttributes={{
+      htmlAttributes={{
         lang,
-      }}*/
+      }}
       title={title}
       titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
-        /*{
+        {
           name: `description`,
           content: metaDescription,
-        },*/
-        /*{
+        },
+        {
           property: `og:title`,
           content: title,
-        },*/
-        /*{
+        },
+        {
           property: `og:description`,
           content: metaDescription,
-        },*/
-        /*{
+        },
+        {
           property: `og:type`,
           content: `website`,
-        },*/
-        /*{
-          name: `twitter:card`,
-          content: `summary`,
         },
         {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          property: `og:image`,
+          content: `${process.env.GATSBY_API_URL}/banner.jpg`,
         },
         {
-          name: `twitter:title`,
-          content: title,
+          property: `og:image:type`,
+          content: `image/jpeg`,
         },
         {
-          name: `twitter:description`,
-          content: metaDescription,
-        },*/
+          property: `og:image:width`,
+          content: `1200`,
+        },
+        {
+          property: `og:image:height`,
+          content: `627`,
+        },
+        {
+          property: `og:image:alt`,
+          content: `ELNS logo. Tagline: Experiment, learn, nifty, simple`,
+        },
       ].concat(meta)}
     />
   );
