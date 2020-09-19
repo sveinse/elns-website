@@ -19,14 +19,31 @@ const BiterrorPage = () => (
     </p>
 
     <p>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-      tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-      veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-      commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-      velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-      cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-      est laborum.
+      The <strong>bit error</strong> is a demonstration of the audibility of
+      injected random bit errors in audio.
     </p>
+
+    <p>
+      The <strong>bit error rate</strong> field sets the probability value.
+      Lower number gives higher probability of errors. The number right of the
+      field is the calculated probability. E.g. 1 ppm (parts per million)
+      indicates that it on average injects one error bit per 1 million bits --
+      for reference: stereo 44.1kHz 16-bit audio contains 1.4 million bits per
+      second.
+    </p>
+
+    <p>
+      The <strong>bit error type</strong> field specifies the value of the
+      injected error. <code>Zero</code> and <code>One</code> injects only 0's or
+      1's respectively, while <code>Random</code> injects a random value.
+    </p>
+
+    <p>
+      The number located right of bit error type is the occurrence counter. It
+      shows how many times any errors have been injected into the output audio.
+    </p>
+
+    <p></p>
   </Layout>
 );
 

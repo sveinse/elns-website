@@ -14,10 +14,9 @@ const DocsPage = () => (
 
     <Header as="h4">
       This page contains the overview of the documentation for ELNS. Use the
-      page navigation to find the page. First time users might like{" "}
-      <Link to="/docs/start">getting started</Link> page. The{" "}
-      <Link to="/docs/usage/ui">user interface</Link> page shows the programs
-      function.
+      page navigation to find the page. First time users might like the{" "}
+      <Link to="/docs/start">getting started</Link> page. The next step is the{" "}
+      <Link to="/docs/usage/ui">user interface</Link> page.
     </Header>
 
     <Segment>
