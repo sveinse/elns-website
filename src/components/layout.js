@@ -16,6 +16,7 @@ import { DocsNav, DocsCrumbs } from "components/docsnav";
 const ElnsMenu = ({ download, className }) => (
   <>
     {elns_menu.map(e => {
+      const { content, ...props } = e;
       if (e.to === "/download" && !download) return null;
       return (
         <Menu.Item
@@ -24,8 +25,9 @@ const ElnsMenu = ({ download, className }) => (
           activeClassName="active"
           to={e.to}
           className={className}
+          {...props}
         >
-          {e.content}
+          {content}
         </Menu.Item>
       );
     })}

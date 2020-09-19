@@ -5,7 +5,7 @@ export const elns_menu = [
   { to: "/", content: "ELNS" },
   { to: "/page2", content: "Use cases" },
   { to: "/features", content: "Features" },
-  { to: "/docs", content: "Documentation" },
+  { to: "/docs", content: "Documentation", partiallyActive: true },
   { to: "/download", content: "Download" },
   /*{ to: "/support", content: "Support" },*/
   {

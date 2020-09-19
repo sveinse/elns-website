@@ -4,7 +4,6 @@ import { Breadcrumb, Icon, List } from "semantic-ui-react";
 import classNames from "classnames";
 
 import { Link } from "components/router";
-import { MaybeLink } from "components/maybe";
 import { elns_docs } from "components/nav";
 
 const getCrumbs = (tree, path) => {
@@ -76,6 +75,7 @@ const DocsListItems = props => {
     <>
       {tree.map(e => {
         const to = path + (e.path && "/" + e.path);
+        const header = e.title ?? e.menu;
         return (
           <List.Item key={to}>
             {!noicons && (
@@ -83,9 +83,7 @@ const DocsListItems = props => {
             )}
             <List.Content>
               <List.Header>
-                <MaybeLink cond={e.link} to={to}>
-                  {e.title ?? e.menu}
-                </MaybeLink>
+                {e.link ? <Link to={to}>{header}</Link> : <>{header}</>}
               </List.Header>
               {e.description}
               {e.children && (
