@@ -1,11 +1,18 @@
 import React from "react";
-import { Header, Icon, Message } from "semantic-ui-react";
+import { Header, Icon, Message, Table, Image } from "semantic-ui-react";
 
 import { Link } from "components/router";
 import Layout from "components/layout";
 import SEO from "components/seo";
 
 import ui_matrix from "images/func/matrix.png";
+import matrix_8_c from "images/func/out/matrix_8_c.png";
+import matrix_8_lfe from "images/func/out/matrix_8_lfe.png";
+import matrix_8_lr from "images/func/out/matrix_8_lr.png";
+import matrix_8_lr_o from "images/func/out/matrix_8_lr_ø.png";
+import matrix_8_s from "images/func/out/matrix_8_s.png";
+import matrix_8_sb from "images/func/out/matrix_8_sb.png";
+import matrix_8_upmix from "images/func/out/matrix_8_upmix.png";
 
 const MatrixPage = () => (
   <Layout docs="/docs/functions/matrix">
@@ -41,13 +48,12 @@ const MatrixPage = () => (
     <Message raised style={{ background: "#dddddd" }} icon>
       <Icon name="info" size="big" />
       <Message.Content>
-        For stereo <em>left</em> is channel 1 and <em>right</em> is channel 2.
-        In the screenshot above, input channel 1 (left) is sent to output
-        channel 1 (left) at full volume, +0dB, and input channel 2 (right) is
-        sent to output channel 2 (right). The full 8 channel assignments can be
-        found in the{" "}
-        <Link to="/docs/usage/windows#channels">channels assignments</Link>{" "}
-        page.
+        For stereo channel 1 is the <em>left</em> audio and channel 2 is the{" "}
+        <em>right</em> audio. In the screenshot above, input channel 1 (left) is
+        sent to output channel 1 (left) at full volume, +0dB, and input channel
+        2 (right) is sent to output channel 2 (right). The speaker assignments
+        for the full 8 channels can be found in the{" "}
+        <Link to="/docs/usage/windows#channels">channels assignments</Link>.
       </Message.Content>
     </Message>
 
@@ -56,7 +62,70 @@ const MatrixPage = () => (
       will automatically reduce the output level to prevent overflow.
     </p>
 
-    <p></p>
+    <Header as="h2">Matrix examples</Header>
+
+    <p>The following setups shows some stereo to 8 channel routing examples.</p>
+
+    <Table celled size="small" fixed compact stackable>
+      <Table.Body>
+        <Table.Row>
+          <Table.Cell width={5}>Stereo sent to the L and R fronts</Table.Cell>
+          <Table.Cell>
+            <Image src={matrix_8_lr} fluid />
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>
+            Stereo mixed down to mono and sent to the center channel
+          </Table.Cell>
+          <Table.Cell>
+            <Image src={matrix_8_c} fluid />
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>
+            Stereo mixed down to mono and sent to the LFE channel
+          </Table.Cell>
+          <Table.Cell>
+            <Image src={matrix_8_lfe} fluid />
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>
+            Stereo to the L and R front channels, where the phase for R is
+            reversed.
+          </Table.Cell>
+          <Table.Cell>
+            <Image src={matrix_8_lr_o} fluid />
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>
+            Stereo sent to the left and right surround channels
+          </Table.Cell>
+          <Table.Cell>
+            <Image src={matrix_8_s} fluid />
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>
+            Stereo sent to the left and right surround back channels
+          </Table.Cell>
+          <Table.Cell>
+            <Image src={matrix_8_sb} fluid />
+          </Table.Cell>
+        </Table.Row>
+        <Table.Row>
+          <Table.Cell>
+            Stereo upmixed to a surround mix to demonstrate complex and
+            composite mixes
+          </Table.Cell>
+          <Table.Cell>
+            <Image src={matrix_8_upmix} fluid />
+          </Table.Cell>
+        </Table.Row>
+      </Table.Body>
+    </Table>
   </Layout>
 );
 

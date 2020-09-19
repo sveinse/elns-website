@@ -25,7 +25,7 @@ export const elns_docs = [
     children: [
 
     { path: "start", menu: "Getting started", level: 2, link: true,
-      description: "This page is a great place to start if new to ELNS",
+      description: "Start here if new to ELNS",
     },
 
     { path: "support", menu: "Support", level: 2, link: true,
@@ -49,7 +49,7 @@ export const elns_docs = [
       },
       { path: "windows", menu: "Windows audio", link: true,
         description: `
-  This page explains the available sound systems in Windows and how to setup
+  This page explains the sound systems in Windows and how to setup
   HDMI with multi-channel audio`,
       },
     ]},
@@ -68,7 +68,7 @@ export const elns_docs = [
       },
       { path: "panner", menu: "Panner", link: true,
         description: `
-  The panner enables placement of stereo or mono audio to multichannel output
+  The panner enables placement of stereo or mono audio into multichannel output
   with smooth transitions.`,
       },
       { path: "quantizer", menu: "Quantizer", link: true,
