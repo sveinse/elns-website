@@ -1,11 +1,48 @@
 /* To ensure footer remains at the bottom */
 .site {
-  display: flex;
   min-height: 100vh;
+}
+
+/* To fill the parent block */
+.flexparent {
+  display: flex;
   flex-direction: column;
 }
-.site-main {
+.flex {
   flex: 1;
+}
+
+/* UI semantic adjustments */
+.ui.text.container {
+  /* Ensure margin at the bottom of the page against the footer */
+  /*margin-top: 2em;*/
+  margin-bottom: 2em;
+}
+.ui.text.container > .ui.header:first-child {
+  /* Fix header first on page */
+  margin-top: calc(2rem - 0.14285714em);
+}
+.ui.text.container > .ui.header:last-child {
+  /* Fix last header on page */
+  margin-bottom: 1rem;
+}
+ul.ui.list li,
+ol.ui.list li,
+.ui.list > .item,
+.ui.list .list > .item {
+  /* Fix line height in List component */
+  line-height: 1.3em; /* p is 1.42853m, was 1.14285714em */
+}
+.ui.list .list > .item > .content,
+.ui.list > .item > .content {
+  /* Fix line height in List.Content */
+  line-height: 1.3em; /* p is 1.42853m, was 1.14285714em */
+}
+.ui.segment.pushable {
+  /* Fix pusher with small border */
+  margin: 0;
+  border: 0;
+  border-radius: 0;
 }
 
 /* Banner */
@@ -20,7 +57,7 @@
   flex-direction: column;
 }
 .banner h1.ui.header {
-  font-size: 5em;
+  font-size: 6em;
   font-weight: bold;
   letter-spacing: 0.8em;
   text-indent: 0.8em;
@@ -30,10 +67,15 @@
   margin-bottom: 1em;
   font-weight: normal;
 }
+@media only screen and (max-width: 768px) {
+  .banner h1.ui.header {
+    font-size: 4em;
+  }
+}
 
 /* Front-page adjustments */
 .frontpage.ui.segment {
-  padding: 5em 0em;
+  padding: 2em 0em;
 }
 .frontpage.ui.segment h3 {
   font-size: 2em;
@@ -44,4 +86,148 @@
 }
 .frontpage.ui.segment p {
   font-size: 1.33em;
+}
+@media only screen and (max-width: 767px) {
+  .frontpage > .ui.grid > .row > .column {
+    /* Fixup front page grid scaling in mobile view */
+    padding: 1rem 0 !important;
+  }
+}
+
+/* Main page navigation */
+@media only screen and (min-width: 768px) {
+  .topnav > .mobile {
+    display: none !important;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .topnav > .desktop {
+    display: none !important;
+  }
+}
+
+/* Docs page navigation boxes */
+.sideflex {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+}
+.sideflex main {
+  margin-top: 2em;
+  flex-grow: 1;
+}
+.sideflex .ui.breadcrumb {
+  margin-top: 1em;
+}
+.sideflex nav {
+  min-width: 15em;
+  /*background: rgb(207, 205, 226);*/
+}
+.sideflex nav .docsnav {
+  background: rgb(224, 224, 224);
+}
+@media only screen and (max-width: 991px) {
+  .sideflex > nav {
+    display: none !important;
+  }
+}
+
+/* Styling for the documentation navigation */
+ul.docsnav {
+  /* For all ul elements at all levels */
+  list-style-type: none;
+  color: #767676;
+  margin: 0;
+  padding: 0;
+  font-size: 105%;
+}
+.docsnav li {
+  /* For all li elements at all levels */
+  padding-left: 1.5em;
+  line-height: 2;
+}
+.docsnav a {
+  /* All a element on all levels */
+  color: inherit;
+}
+.docsnav a:hover {
+  color: #1967af;
+}
+.docsnav li.level0 {
+  /* Styling on level 0 li */
+  margin-top: 1em;
+  margin-bottom: 1em;
+  text-transform: uppercase;
+  font-size: 95%;
+  font-weight: bold;
+}
+.docsnav li.level1 {
+  /* Styling on level 1 li */
+  margin-top: 2.5em;
+  margin-bottom: 0.8em;
+  text-transform: uppercase;
+  font-size: 110%;
+  font-weight: bold;
+}
+.docsnav li.level2 {
+  font-size: 105%;
+}
+.docsnav li.level0 a {
+  /* Text styling on level 0 links */
+  font-family: inherit;
+}
+.docsnav li.level1 a {
+  /* Text styling on level 1 links */
+  font-family: inherit;
+}
+.docsnav li.level2 a {
+  /* Text styling on level 2 links */
+  font-family: inherit;
+}
+.docsnav li.active {
+  /* Styling on active element */
+  border-left-width: 0.5em;
+  border-left-style: solid;
+  border-left-color: #418ed8;
+  padding-left: 1em;
+}
+.docsnav .active > a {
+  /* Styling on active links */
+  color: #3e88cc;
+  font-weight: bold;
+}
+.docsnav .active > a:hover {
+  color: #1967af;
+}
+
+/* Download table adjustments */
+.gridzero.ui.grid {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.gridzero.ui.grid > .row {
+  padding-top: 0.12em;
+  padding-bottom: 0.12em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+.gridzero.ui.grid > .row > .column {
+  padding-top: 0.12em;
+  padding-bottom: 0.12em;
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.solid {
+  border: 1px;
+  border-style: solid;
+}
+
+.ui.grid > .row > .column.fit {
+  /* Override grid flexbox to just fit the content */
+  width: fit-content !important;
+}
+.ui.grid > .row > .column.grow {
+  /* Override grid flexbox to fill the space */
+  flex-grow: 1;
 }

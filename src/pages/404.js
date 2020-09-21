@@ -1,18 +1,15 @@
-import React from "react"
-import Layout from "../components/layout"
-import SEO from "../components/seo"
-import { Container, Header } from "semantic-ui-react"
+import React from "react";
+import { Header } from "semantic-ui-react";
+
+import Layout from "components/layout";
+import SEO from "components/seo";
 
 const NotFoundPage = () => (
   <Layout>
     <SEO title="404: Not found" />
-    <Container>
-      <p />
-      <Header as="h2">NOT FOUND</Header>
-      <p>The page doesn&#39;t exist.</p>
-      <p />
-    </Container>
+    <Header as="h1">NOT FOUND</Header>
+    <p>The page doesn&#39;t exist.</p>
   </Layout>
-)
+);
 
-export default NotFoundPage
+export default NotFoundPage;

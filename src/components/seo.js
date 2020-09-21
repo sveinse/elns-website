@@ -1,17 +1,25 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Helmet } from "react-helmet"
+import React from "react";
+import PropTypes from "prop-types";
+import { Helmet } from "react-helmet";
+import { useStaticQuery, graphql } from "gatsby";
 
 function SEO({ description, lang, meta, title }) {
-  const site = {
-    siteMetadata: {
-      title: `ELNS`,
-      description: `Website for the ELNS application`,
-      author: `@sveinse`,
-    },
-  }
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+            author
+            siteUrl
+          }
+        }
+      }
+    `
+  );
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = description || site.siteMetadata.description;
 
   return (
     <Helmet
@@ -38,37 +46,41 @@ function SEO({ description, lang, meta, title }) {
           content: `website`,
         },
         {
-          name: `twitter:card`,
-          content: `summary`,
+          property: `og:image`,
+          content: `${site.siteMetadata.siteUrl}/banner.jpg`,
         },
         {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          property: `og:image:type`,
+          content: `image/jpeg`,
         },
         {
-          name: `twitter:title`,
-          content: title,
+          property: `og:image:width`,
+          content: `1200`,
         },
         {
-          name: `twitter:description`,
-          content: metaDescription,
+          property: `og:image:height`,
+          content: `627`,
+        },
+        {
+          property: `og:image:alt`,
+          content: `ELNS logo. Tagline: Experiment, learn, nifty, simple`,
         },
       ].concat(meta)}
     />
-  )
+  );
 }
 
 SEO.defaultProps = {
   lang: `en`,
   meta: [],
   description: ``,
-}
+};
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
   meta: PropTypes.arrayOf(PropTypes.object),
   title: PropTypes.string.isRequired,
-}
+};
 
-export default SEO
+export default SEO;
