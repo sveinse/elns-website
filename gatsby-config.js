@@ -8,6 +8,7 @@ module.exports = {
     siteUrl: DEPLOY_PRIME_URL,
   },
   plugins: [
+    `gatsby-plugin-netlify`,
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

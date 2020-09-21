@@ -43,7 +43,7 @@ const Case1 = () => (
     </p>
     <p>
       The{" "}
-      <Link to="/docs/functions/matrixmixer">
+      <Link to="/docs/functions/matrix">
         <strong>Matrix Mixer</strong>
       </Link>{" "}
       function allows routing audio to specific to the center channel in a
